@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.SysUserMapper">
+
+    <!-- 获取在线管家详细信息 -->
+    <select id="getOnlineManagerDetails" resultType="map">
+        SELECT 
+            u.id,
+            u.real_name as realName,
+            u.username,
+            u.phone,
+            '' as email,
+            '护理部' as department,
+            '健康管家' as position,
+            CASE 
+                WHEN u.status = 1 THEN '在线'
+                ELSE '离线'
+            END as onlineStatus,
+            DATE_FORMAT(u.create_time, '%Y-%m-%d %H:%i') as lastLoginTime,
+            COALESCE(customer_count.managed_customers, 0) as managedCustomers,
+            CASE 
+                WHEN COALESCE(customer_count.managed_customers, 0) <![CDATA[<=]]> 5 THEN '轻松'
+                WHEN COALESCE(customer_count.managed_customers, 0) <![CDATA[<=]]> 10 THEN '正常'
+                ELSE '繁忙'
+            END as workload
+        FROM sys_user u
+        LEFT JOIN (
+            SELECT 
+                health_manager_id,
+                COUNT(*) as managed_customers
+            FROM customer 
+            WHERE status = 1
+            GROUP BY health_manager_id
+        ) customer_count ON u.id = customer_count.health_manager_id
+        WHERE u.status = 1 
+        AND (u.role LIKE '%管家%' OR u.role LIKE '%MANAGER%' OR u.role = 'HEALTH_MANAGER')
+        ORDER BY u.real_name ASC
+    </select>
+
+</mapper>

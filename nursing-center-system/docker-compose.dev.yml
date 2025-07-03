@@ -1,0 +1,42 @@
+version: '3.8'
+
+# 开发环境配置 - 仅启动数据库和Redis，应用在本地运行
+services:
+  # MySQL 数据库
+  mysql-dev:
+    image: mysql:8.0
+    container_name: nursing-mysql-dev
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nursing_center
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_dev_data:/var/lib/mysql
+      - ./nursing_center.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - nursing-dev-network
+
+  # Redis 缓存
+  redis-dev:
+    image: redis:7-alpine
+    container_name: nursing-redis-dev
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_dev_data:/data
+    networks:
+      - nursing-dev-network
+
+volumes:
+  mysql_dev_data:
+    driver: local
+  redis_dev_data:
+    driver: local
+
+networks:
+  nursing-dev-network:
+    driver: bridge

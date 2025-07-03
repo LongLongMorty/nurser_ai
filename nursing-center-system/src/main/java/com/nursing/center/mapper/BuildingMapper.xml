@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.BuildingMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BuildingDTOMap" type="com.nursing.center.dto.BuildingDTO">
+        <id column="id" property="id"/>
+        <result column="building_no" property="buildingNo"/>
+        <result column="building_name" property="buildingName"/>
+        <result column="floor_count" property="floorCount"/>
+        <result column="status" property="status"/>
+        <result column="total_rooms" property="totalRooms"/>
+        <result column="total_beds" property="totalBeds"/>
+        <result column="occupied_beds" property="occupiedBeds"/>
+    </resultMap>
+
+    <!-- 分页查询楼栋信息 -->
+    <select id="selectBuildingPage" resultMap="BuildingDTOMap">
+        SELECT
+            b.*,
+            COUNT(DISTINCT r.id) as total_rooms,
+            COUNT(bed.id) as total_beds,
+            COUNT(CASE WHEN bed.bed_status = 'OCCUPIED' THEN 1 END) as occupied_beds
+        FROM building b
+        LEFT JOIN room r ON b.id = r.building_id AND r.deleted = 0
+        LEFT JOIN bed bed ON r.id = bed.room_id AND bed.deleted = 0
+        WHERE b.deleted = 0
+        <if test="query.buildingNo != null and query.buildingNo != ''">
+            AND b.building_no LIKE CONCAT('%', #{query.buildingNo}, '%')
+        </if>
+        <if test="query.buildingName != null and query.buildingName != ''">
+            AND b.building_name LIKE CONCAT('%', #{query.buildingName}, '%')
+        </if>
+        <if test="query.status != null">
+            AND b.status = #{query.status}
+        </if>
+        GROUP BY b.id
+        ORDER BY b.building_no
+    </select>
+
+    <!-- 根据ID查询楼栋详情 -->
+    <select id="selectBuildingById" resultMap="BuildingDTOMap">
+        SELECT
+            b.*,
+            COUNT(DISTINCT r.id) as total_rooms,
+            COUNT(bed.id) as total_beds,
+            COUNT(CASE WHEN bed.bed_status = 'OCCUPIED' THEN 1 END) as occupied_beds
+        FROM building b
+        LEFT JOIN room r ON b.id = r.building_id AND r.deleted = 0
+        LEFT JOIN bed bed ON r.id = bed.room_id AND bed.deleted = 0
+        WHERE b.id = #{id} AND b.deleted = 0
+        GROUP BY b.id
+    </select>
+
+    <!-- 获取所有启用的楼栋 -->
+    <select id="selectEnabledBuildings" resultMap="BuildingDTOMap">
+        SELECT
+            b.*,
+            COUNT(DISTINCT r.id) as total_rooms,
+            COUNT(bed.id) as total_beds,
+            COUNT(CASE WHEN bed.bed_status = 'OCCUPIED' THEN 1 END) as occupied_beds
+        FROM building b
+        LEFT JOIN room r ON b.id = r.building_id AND r.deleted = 0
+        LEFT JOIN bed bed ON r.id = bed.room_id AND bed.deleted = 0
+        WHERE b.deleted = 0 AND b.status = 1
+        GROUP BY b.id
+        ORDER BY b.building_no
+    </select>
+
+</mapper>

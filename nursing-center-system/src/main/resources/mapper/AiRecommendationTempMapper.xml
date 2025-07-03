@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.AiRecommendationTempMapper">
+
+    <!-- 根据会话ID删除推荐 -->
+    <delete id="deleteBySessionId">
+        DELETE FROM ai_recommendation_temp WHERE session_id = #{sessionId}
+    </delete>
+
+    <!-- 根据会话ID查询推荐列表 -->
+    <select id="selectBySessionId" resultType="com.nursing.center.entity.AiRecommendationTemp">
+        SELECT * FROM ai_recommendation_temp 
+        WHERE session_id = #{sessionId}
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 根据客户信息查询个性化推荐 -->
+    <select id="selectByCustomerInfo" resultType="com.nursing.center.entity.AiRecommendationTemp">
+        SELECT * FROM ai_recommendation_temp 
+        WHERE 1=1
+        <if test="customerId != null">
+            AND customer_id = #{customerId}
+        </if>
+        <if test="customerAge != null">
+            AND customer_age = #{customerAge}
+        </if>
+        <if test="customerGender != null and customerGender != ''">
+            AND customer_gender = #{customerGender}
+        </if>
+        <if test="mealType != null and mealType != ''">
+            AND meal_type = #{mealType}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+    <!-- 批量插入推荐 -->
+    <insert id="batchInsert">
+        INSERT INTO ai_recommendation_temp (
+            customer_id, customer_name, customer_age, customer_gender,
+            session_id, meal_name, meal_type, description,
+            main_food, side_dishes, soup, fruits,
+            ingredients, cooking_method, calories, protein, fat, carbohydrate,
+            nutrition_info, suitable_crowd, target_group, dietary_restrictions,
+            estimated_cost, ai_score, ai_reason, ai_model,
+            nutrition_type, additional_requirements, is_from_history, history_ref_id,
+            user_id, user_age, user_gender, create_time
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+        (
+            #{item.customerId}, #{item.customerName}, #{item.customerAge}, #{item.customerGender},
+            #{item.sessionId}, #{item.mealName}, #{item.mealType}, #{item.description},
+            #{item.mainFood}, #{item.sideDishes}, #{item.soup}, #{item.fruits},
+            #{item.ingredients}, #{item.cookingMethod}, #{item.calories}, #{item.protein}, #{item.fat}, #{item.carbohydrate},
+            #{item.nutritionInfo}, #{item.suitableCrowd}, #{item.targetGroup}, #{item.dietaryRestrictions},
+            #{item.estimatedCost}, #{item.aiScore}, #{item.aiReason}, #{item.aiModel},
+            #{item.nutritionType}, #{item.additionalRequirements}, #{item.isFromHistory}, #{item.historyRefId},
+            #{item.userId}, #{item.userAge}, #{item.userGender}, #{item.createTime}
+        )
+        </foreach>
+    </insert>
+
+</mapper>

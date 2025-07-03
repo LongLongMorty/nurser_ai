@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.ReturnApplyMapper">
+
+    <!-- 分页查询回院申请列表 -->
+    <select id="selectReturnApplyPage" resultType="com.nursing.center.vo.ReturnApplyVO">
+        SELECT 
+            ra.id,
+            ra.customer_id,
+            c.customer_name,
+            ra.outing_apply_id,
+            ra.applicant_id,
+            applicant.real_name as applicant_name,
+            ra.return_reason,
+            ra.requested_return_date,
+            ra.actual_return_date,
+            ra.apply_status,
+            CASE ra.apply_status
+                WHEN 'SUBMITTED' THEN '已提交'
+                WHEN 'APPROVED' THEN '审批通过'
+                WHEN 'REJECTED' THEN '审批拒绝'
+                ELSE ra.apply_status
+            END as apply_status_desc,
+            ra.approver_id,
+            approver.real_name as approver_name,
+            ra.approve_time,
+            ra.approve_remark,
+            ra.create_time,
+            ra.update_time,
+            oa.outing_date,
+            oa.expected_return_date,
+            b.bed_no,
+            r.room_no
+        FROM return_apply ra
+        INNER JOIN customer c ON ra.customer_id = c.id
+        INNER JOIN outing_apply oa ON ra.outing_apply_id = oa.id
+        INNER JOIN sys_user applicant ON ra.applicant_id = applicant.id
+        LEFT JOIN sys_user approver ON ra.approver_id = approver.id
+        LEFT JOIN bed b ON c.bed_id = b.id
+        LEFT JOIN room r ON b.room_id = r.id
+        WHERE ra.deleted = 0
+        <if test="query.customerName != null and query.customerName != ''">
+            AND c.customer_name LIKE CONCAT('%', #{query.customerName}, '%')
+        </if>
+        <if test="query.applicantId != null">
+            AND ra.applicant_id = #{query.applicantId}
+        </if>
+        <if test="query.applyStatus != null and query.applyStatus != ''">
+            AND ra.apply_status = #{query.applyStatus}
+        </if>
+        <if test="query.startDate != null and query.startDate != ''">
+            AND DATE(ra.create_time) >= #{query.startDate}
+        </if>
+        <if test="query.endDate != null and query.endDate != ''">
+            AND DATE(ra.create_time) &lt;= #{query.endDate}
+        </if>
+        ORDER BY ra.create_time DESC
+    </select>
+
+    <!-- 根据ID查询回院申请详情 -->
+    <select id="selectReturnApplyById" resultType="com.nursing.center.vo.ReturnApplyVO">
+        SELECT 
+            ra.id,
+            ra.customer_id,
+            c.customer_name,
+            ra.outing_apply_id,
+            ra.applicant_id,
+            applicant.real_name as applicant_name,
+            ra.return_reason,
+            ra.requested_return_date,
+            ra.actual_return_date,
+            ra.apply_status,
+            CASE ra.apply_status
+                WHEN 'SUBMITTED' THEN '已提交'
+                WHEN 'APPROVED' THEN '审批通过'
+                WHEN 'REJECTED' THEN '审批拒绝'
+                ELSE ra.apply_status
+            END as apply_status_desc,
+            ra.approver_id,
+            approver.real_name as approver_name,
+            ra.approve_time,
+            ra.approve_remark,
+            ra.create_time,
+            ra.update_time,
+            oa.outing_date,
+            oa.expected_return_date,
+            b.bed_no,
+            r.room_no
+        FROM return_apply ra
+        INNER JOIN customer c ON ra.customer_id = c.id
+        INNER JOIN outing_apply oa ON ra.outing_apply_id = oa.id
+        INNER JOIN sys_user applicant ON ra.applicant_id = applicant.id
+        LEFT JOIN sys_user approver ON ra.approver_id = approver.id
+        LEFT JOIN bed b ON c.bed_id = b.id
+        LEFT JOIN room r ON b.room_id = r.id
+        WHERE ra.id = #{id} AND ra.deleted = 0
+    </select>
+
+</mapper>

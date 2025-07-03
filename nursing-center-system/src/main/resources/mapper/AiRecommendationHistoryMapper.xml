@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.AiRecommendationHistoryMapper">
+
+    <!-- 根据条件查询历史推荐 -->
+    <select id="selectByConditions" resultType="com.nursing.center.entity.AiRecommendationHistory">
+        SELECT * FROM ai_recommendation_history 
+        WHERE 1=1
+        <if test="mealType != null and mealType != ''">
+            AND meal_type = #{mealType}
+        </if>
+        <if test="targetGroup != null and targetGroup != ''">
+            AND target_group = #{targetGroup}
+        </if>
+        <if test="nutritionType != null and nutritionType != ''">
+            AND nutrition_type = #{nutritionType}
+        </if>
+        ORDER BY adoption_date DESC
+        <if test="limit != null">
+            LIMIT #{limit}
+        </if>
+    </select>
+
+    <!-- 获取高评分的历史推荐 -->
+    <select id="selectHighRatedHistory" resultType="com.nursing.center.entity.AiRecommendationHistory">
+        SELECT * FROM ai_recommendation_history 
+        WHERE 1=1
+        <if test="mealType != null and mealType != ''">
+            AND meal_type = #{mealType}
+        </if>
+        <if test="targetGroup != null and targetGroup != ''">
+            AND target_group = #{targetGroup}
+        </if>
+        <if test="minRating != null">
+            AND (user_rating >= #{minRating} OR effectiveness_score >= #{minRating})
+        </if>
+        AND is_recommended_again = 1
+        ORDER BY user_rating DESC, effectiveness_score DESC
+        <if test="limit != null">
+            LIMIT #{limit}
+        </if>
+    </select>
+
+    <!-- 统计采纳数量 -->
+    <select id="countAdoptions" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM ai_recommendation_history 
+        WHERE 1=1
+        <if test="mealType != null and mealType != ''">
+            AND meal_type = #{mealType}
+        </if>
+        <if test="targetGroup != null and targetGroup != ''">
+            AND target_group = #{targetGroup}
+        </if>
+    </select>
+
+</mapper>

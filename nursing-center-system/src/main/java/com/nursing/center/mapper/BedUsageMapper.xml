@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.BedUsageMapper">
+
+    <!-- 逻辑删除客户的当前床位使用记录 -->
+    <update id="logicalDeleteCurrentUsageByCustomerId">
+        UPDATE bed_usage 
+        SET deleted = 1, 
+            update_time = NOW()
+        WHERE customer_id = #{customerId} 
+          AND usage_status = 'USING' 
+          AND deleted = 0
+    </update>
+
+    <!-- 根据客户ID和床位ID查询当前使用记录 -->
+    <select id="selectCurrentUsageByCustomerAndBed" resultType="com.nursing.center.entity.BedUsage">
+        SELECT * FROM bed_usage 
+        WHERE customer_id = #{customerId} 
+          AND bed_id = #{bedId} 
+          AND usage_status = 'USING' 
+          AND deleted = 0
+        LIMIT 1
+    </select>
+
+    <!-- 结束客户的当前床位使用记录 -->
+    <update id="endCurrentUsageByCustomerId">
+        UPDATE bed_usage 
+        SET end_date = #{endDate}, 
+            usage_status = 'HISTORY',
+            update_time = NOW()
+        WHERE customer_id = #{customerId} 
+          AND usage_status = 'USING' 
+          AND deleted = 0
+    </update>
+
+    <!-- 创建新的床位使用记录 -->
+    <insert id="insertBedUsage" parameterType="com.nursing.center.entity.BedUsage">
+        INSERT INTO bed_usage (
+            customer_id, 
+            bed_id, 
+            room_id, 
+            building_id, 
+            start_date, 
+            end_date, 
+            usage_status,
+            create_time,
+            update_time,
+            deleted
+        ) VALUES (
+            #{customerId}, 
+            #{bedId}, 
+            #{roomId}, 
+            #{buildingId}, 
+            #{startDate}, 
+            #{endDate},
+            #{usageStatus},
+            NOW(),
+            NOW(),
+            0
+        )
+    </insert>    <!-- 分页查询床位使用记录 -->
+    <select id="selectBedUsagePage" resultType="com.nursing.center.dto.BedUsageDTO">
+        SELECT
+            bu.id,
+            bu.start_date as startDate,
+            bu.end_date as endDate,
+            bu.usage_status as usageStatus,
+            DATEDIFF(COALESCE(bu.end_date, NOW()), bu.start_date) as duration,
+            c.id as customerId,
+            c.customer_name as customerName,
+            c.age,
+            c.gender,
+            c.id_card as idCard,
+            b.id as bedId,
+            b.bed_no as bedNo,
+            r.room_no as roomNo,
+            bld.building_no as buildingNo,
+            r.floor_no as floorNo,
+            CONCAT(bld.building_no, '-', r.floor_no, '楼-', r.room_no, '室-', b.bed_no) as fullLocation
+        FROM bed_usage bu
+        INNER JOIN customer c ON bu.customer_id = c.id
+        INNER JOIN bed b ON bu.bed_id = b.id
+        INNER JOIN room r ON b.room_id = r.id
+        INNER JOIN building bld ON r.building_id = bld.id        WHERE bu.deleted = 0
+        <if test="query.customerName != null and query.customerName != ''">
+            AND c.customer_name LIKE CONCAT('%', #{query.customerName}, '%')
+        </if>
+        <if test="query.usageStatus != null">
+            AND bu.usage_status = #{query.usageStatus}
+        </if>
+        <if test="query.startDateFrom != null">
+            AND bu.start_date >= #{query.startDateFrom}
+        </if>
+        <if test="query.startDateTo != null">
+            AND bu.start_date &lt;= #{query.startDateTo}
+        </if>
+        <if test="query.bedNo != null and query.bedNo != ''">
+            AND b.bed_no LIKE CONCAT('%', #{query.bedNo}, '%')
+        </if>
+        <if test="query.roomNo != null and query.roomNo != ''">
+            AND r.room_no LIKE CONCAT('%', #{query.roomNo}, '%')
+        </if>
+        <if test="query.floorNo != null">
+            AND r.floor_no = #{query.floorNo}
+        </if>
+        ORDER BY bu.create_time DESC
+    </select>    <!-- 根据ID查询床位使用记录详情 -->
+    <select id="selectBedUsageById" resultType="com.nursing.center.dto.BedUsageDTO">
+        SELECT
+            bu.id,
+            bu.start_date as startDate,
+            bu.end_date as endDate,
+            bu.usage_status as usageStatus,
+            DATEDIFF(COALESCE(bu.end_date, NOW()), bu.start_date) as duration,
+            c.id as customerId,
+            c.customer_name as customerName,
+            c.age,
+            c.gender,
+            c.id_card as idCard,
+            b.id as bedId,
+            b.bed_no as bedNo,
+            r.room_no as roomNo,
+            bld.building_no as buildingNo,
+            r.floor_no as floorNo,
+            CONCAT(bld.building_no, '-', r.floor_no, '楼-', r.room_no, '室-', b.bed_no) as fullLocation
+        FROM bed_usage bu
+        INNER JOIN customer c ON bu.customer_id = c.id
+        INNER JOIN bed b ON bu.bed_id = b.id
+        INNER JOIN room r ON b.room_id = r.id
+        INNER JOIN building bld ON r.building_id = bld.id
+        WHERE bu.id = #{id} AND bu.deleted = 0
+    </select>
+
+    <!-- 更新床位使用记录的结束时间 -->
+    <update id="updateEndDate">
+        UPDATE bed_usage 
+        SET end_date = #{endDate},
+            usage_status = 'HISTORY',
+            update_time = NOW()
+        WHERE id = #{id}
+    </update>
+
+</mapper>

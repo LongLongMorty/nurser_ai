@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.CustomerCareMapper">    <!-- 查询客户的护理服务列表 -->
+    <select id="selectByCustomerId" resultType="com.nursing.center.dto.CustomerCareDTO">
+        SELECT
+            cc.id,
+            cc.customer_id as customerId,
+            cc.care_item_id as careItemId,
+            cc.purchase_date as purchaseDate,
+            cc.purchase_quantity as purchaseQuantity,
+            cc.used_quantity as usedQuantity,
+            cc.remaining_quantity as remainingQuantity,
+            cc.expire_date as expireDate,
+            cc.service_status as serviceStatus,
+            c.customer_name as customerName,
+            ci.item_name as itemName,
+            ci.item_code as itemCode,
+            ci.price as itemPrice
+        FROM customer_care cc
+                 INNER JOIN customer c ON cc.customer_id = c.id
+                 INNER JOIN care_item ci ON cc.care_item_id = ci.id
+        WHERE cc.customer_id = #{customerId} AND cc.deleted = 0
+        ORDER BY cc.create_time DESC
+    </select>    <!-- 查询客户未拥有的护理项目 -->
+    <select id="selectAvailableItemsForCustomer" resultType="com.nursing.center.dto.CustomerCareDTO">
+        SELECT
+        0 as id,
+        #{customerId} as customerId,
+        ci.id as careItemId,
+        NULL as purchaseDate,
+        0 as purchaseQuantity,
+        0 as usedQuantity,
+        0 as remainingQuantity,
+        NULL as expireDate,
+        NULL as serviceStatus,
+        '' as customerName,
+        ci.item_name as itemName,
+        ci.item_code as itemCode,
+        ci.price as itemPrice
+        FROM care_item ci
+        WHERE ci.deleted = 0 AND ci.status = 1
+        AND ci.id NOT IN (
+        SELECT care_item_id
+        FROM customer_care
+        WHERE customer_id = #{customerId} AND deleted = 0
+        )
+        <if test="itemName != null and itemName != ''">
+            AND ci.item_name LIKE CONCAT('%', #{itemName}, '%')
+        </if>
+        ORDER BY ci.create_time DESC
+    </select>
+
+    <!-- 客户护理设置分页查询 -->
+    <select id="selectCustomerCarePage" resultType="com.nursing.center.dto.CustomerCarePageDTO">
+        SELECT
+            c.id,
+            c.customer_name as customerName,
+            c.guardian_phone as phone,
+            c.care_level_id as careLevelId,
+            cl.level_name as careLevelName,
+            COALESCE(care_count.item_count, 0) as careItemCount,
+            DATE_FORMAT(c.check_in_date, '%Y-%m-%d') as effectiveDate,
+            DATE_FORMAT(c.create_time, '%Y-%m-%d %H:%i:%s') as createTime
+        FROM customer c
+        LEFT JOIN care_level cl ON c.care_level_id = cl.id
+        LEFT JOIN (
+            SELECT
+                customer_id,
+                COUNT(DISTINCT care_item_id) as item_count
+            FROM customer_care
+            WHERE deleted = 0
+            GROUP BY customer_id
+        ) care_count ON c.id = care_count.customer_id
+        WHERE c.deleted = 0
+        <if test="query.customerName != null and query.customerName != ''">
+            AND c.customer_name LIKE CONCAT('%', #{query.customerName}, '%')
+        </if>
+        <if test="query.careLevelId != null">
+            AND c.care_level_id = #{query.careLevelId}
+        </if>
+        ORDER BY c.create_time DESC
+    </select>
+
+    <!-- 客户护理设置分页查询 -->
+    <select id="selectCustomerCareSettingPage" resultType="com.nursing.center.dto.CustomerCareSettingDTO">
+        SELECT
+            c.id,
+            c.customer_name as name,
+            c.guardian_phone as phone,
+            c.id_card,
+            c.age,
+            CASE WHEN c.gender = 'MALE' THEN '男' ELSE '女' END as gender,
+            c.care_level_id,
+            cl.level_name as care_level_name,
+            COALESCE(care_count.item_count, 0) as care_item_count,
+            c.check_in_date as effective_date,
+            c.create_time,
+            b.building_name,
+            r.room_no,
+            bed.bed_no,
+            hm.manager_name as health_manager_name
+        FROM customer c
+        LEFT JOIN care_level cl ON c.care_level_id = cl.id
+        LEFT JOIN building b ON c.building_id = b.id
+        LEFT JOIN room r ON c.room_id = r.id
+        LEFT JOIN bed ON c.bed_id = bed.id
+        LEFT JOIN health_manager hm ON c.health_manager_id = hm.id
+        LEFT JOIN (
+            SELECT
+                customer_id,
+                COUNT(*) as item_count
+            FROM customer_care
+            WHERE deleted = 0
+            GROUP BY customer_id
+        ) care_count ON c.id = care_count.customer_id
+        WHERE c.deleted = 0
+        <if test="query.customerName != null and query.customerName != ''">
+            AND c.customer_name LIKE CONCAT('%', #{query.customerName}, '%')
+        </if>
+        <if test="query.careLevelId != null">
+            AND c.care_level_id = #{query.careLevelId}
+        </if>
+        <if test="query.status != null">
+            AND c.status = #{query.status}
+        </if>
+        ORDER BY c.create_time DESC
+    </select>
+
+    <!-- 更新客户护理服务使用数量 -->
+    <update id="updateUsedQuantity">
+        UPDATE customer_care
+        SET used_quantity = #{usedQuantity},
+            remaining_quantity = #{remainingQuantity},
+            update_time = NOW()
+        WHERE id = #{id}
+    </update>    <!-- 查询客户护理项目详情列表 -->
+    <select id="selectCustomerCareItemDetails" resultType="com.nursing.center.dto.CustomerCareItemDetailDTO">
+        SELECT
+            cc.id,
+            cc.care_item_id as careItemId,
+            ci.item_name as careItemName,
+            ci.price as unitPrice,
+            DATE_FORMAT(cc.purchase_date, '%Y-%m-%d') as purchaseDate,
+            cc.purchase_quantity as purchaseQuantity,
+            cc.used_quantity as usedQuantity,
+            cc.remaining_quantity as remainingQuantity,
+            DATE_FORMAT(cc.expire_date, '%Y-%m-%d') as expireDate,
+            cc.service_status as serviceStatus
+        FROM customer_care cc
+        LEFT JOIN care_item ci ON cc.care_item_id = ci.id
+        WHERE cc.customer_id = #{customerId}
+        AND cc.deleted = 0
+        ORDER BY cc.create_time DESC
+    </select>
+
+    <!-- 获取客户护理详情 -->
+    <select id="selectCustomerCareDetail" resultType="com.nursing.center.dto.CustomerCareDetailDTO">
+        SELECT
+            c.id,
+            c.id as customerId,
+            c.customer_name as customerName,
+            c.care_level_id as careLevelId,
+            cl.level_name as careLevelName,
+            DATE_FORMAT(c.create_time, '%Y-%m-%d %H:%i:%s') as createTime
+        FROM customer c
+        LEFT JOIN care_level cl ON c.care_level_id = cl.id
+        WHERE c.id = #{customerId} AND c.deleted = 0
+    </select>    <!-- 获取客户护理项目详情 -->
+    <select id="selectCustomerCareItems" resultType="com.nursing.center.dto.CustomerCareItemDetailDTO">
+        SELECT
+            cc.id,
+            cc.care_item_id as careItemId,
+            ci.item_name as careItemName,
+            ci.price as unitPrice,
+            DATE_FORMAT(cc.purchase_date, '%Y-%m-%d') as purchaseDate,
+            cc.purchase_quantity as purchaseQuantity,
+            cc.used_quantity as usedQuantity,
+            cc.remaining_quantity as remainingQuantity,
+            DATE_FORMAT(cc.expire_date, '%Y-%m-%d') as expireDate,
+            cc.service_status as serviceStatus
+        FROM customer_care cc
+        LEFT JOIN care_item ci ON cc.care_item_id = ci.id
+        WHERE cc.customer_id = #{customerId} AND cc.deleted = 0
+        ORDER BY cc.create_time DESC
+    </select>    <!-- 获取客户护理项目配置（包含进度信息） -->    <select id="selectCustomerCareItemsWithProgress" resultType="com.nursing.center.dto.CustomerCareDTO">
+        SELECT
+            cc.id,
+            cc.customer_id as customerId,
+            c.customer_name as customerName,
+            cc.care_item_id as careItemId,
+            ci.item_name as itemName,
+            ci.item_code as itemCode,
+            ci.price as itemPrice,
+            cc.purchase_quantity as purchaseQuantity,
+            cc.used_quantity as completedQuantity,
+            cc.remaining_quantity as remainingQuantity,
+            DATE_FORMAT(cc.purchase_date, '%Y-%m-%d') as purchaseDate,
+            DATE_FORMAT(cc.expire_date, '%Y-%m-%d') as expireDate,
+            cc.service_status as serviceStatus,
+            (SELECT DATE_FORMAT(cr.care_time, '%Y-%m-%d %H:%i:%s')
+             FROM care_record cr
+             WHERE cr.customer_id = cc.customer_id
+               AND cr.care_item_id = cc.care_item_id
+               AND cr.deleted = 0
+             ORDER BY cr.care_time DESC
+             LIMIT 1) as lastCareTime,
+            DATE_FORMAT(cc.create_time, '%Y-%m-%d %H:%i:%s') as createdTime
+        FROM customer_care cc
+        INNER JOIN customer c ON cc.customer_id = c.id
+        INNER JOIN care_item ci ON cc.care_item_id = ci.id
+        WHERE cc.customer_id = #{customerId}
+          AND cc.deleted = 0
+          AND c.deleted = 0
+          AND ci.deleted = 0
+        ORDER BY cc.create_time DESC
+    </select>
+
+</mapper>

@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  # MySQL 数据库
+  mysql:
+    image: mysql:8.0
+    container_name: nursing-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: nursing123
+      MYSQL_DATABASE: nursing_center
+      MYSQL_USER: nursing
+      MYSQL_PASSWORD: nursing123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./nursing_center.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - nursing-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Redis 缓存
+  redis:
+    image: redis:7-alpine
+    container_name: nursing-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - nursing-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      timeout: 3s
+      retries: 5
+
+  # Spring Boot 后端
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nursing-backend
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      MYSQL_USER: nursing
+      MYSQL_PASSWORD: nursing123
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - nursing-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health || exit 1"]
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # Vue 前端
+  frontend:
+    build:
+      context: ./nursing-center-frontend
+      dockerfile: Dockerfile
+    container_name: nursing-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - nursing-network
+
+volumes:
+  mysql_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  nursing-network:
+    driver: bridge

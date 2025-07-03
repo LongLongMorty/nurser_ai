@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.MealCalendarMapper">
+    <!-- MealCalendar 实体映射 -->
+    <resultMap id="BaseResultMap" type="com.nursing.center.entity.MealCalendar">
+        <id property="id" column="id"/>
+        <result property="weekName" column="week_name"/>
+        <result property="dayOfWeek" column="day_of_week"/>
+        <result property="breakfastConfigId" column="breakfast_config_id"/>
+        <result property="lunchConfigId" column="lunch_config_id"/>
+        <result property="dinnerConfigId" column="dinner_config_id"/>
+        <result property="snackConfigId" column="snack_config_id"/>
+        <result property="isActive" column="is_active"/>
+        <result property="specialNotes" column="special_notes"/>
+        <result property="totalEstimatedCost" column="total_estimated_cost"/>
+        <result property="creatorId" column="creator_id"/>
+        <result property="creatorName" column="creator_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleted" column="deleted"/>
+    </resultMap>
+
+    <!-- MealCalendarDTO 映射，带菜品名 -->
+    <resultMap id="MealCalendarDTOResultMap" type="com.nursing.center.dto.MealCalendarDTO">
+        <id property="id" column="id"/>
+        <result property="weekName" column="week_name"/>
+        <result property="dayOfWeek" column="day_of_week"/>
+        <result property="breakfastConfigId" column="breakfast_config_id"/>
+        <result property="breakfastName" column="breakfast_name"/>
+        <result property="lunchConfigId" column="lunch_config_id"/>
+        <result property="lunchName" column="lunch_name"/>
+        <result property="dinnerConfigId" column="dinner_config_id"/>
+        <result property="dinnerName" column="dinner_name"/>
+        <result property="snackConfigId" column="snack_config_id"/>
+        <result property="snackName" column="snack_name"/>
+        <result property="isActive" column="is_active"/>
+        <result property="specialNotes" column="special_notes"/>
+        <result property="totalEstimatedCost" column="total_estimated_cost"/>
+        <result property="creatorId" column="creator_id"/>
+        <result property="creatorName" column="creator_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <!-- 查询指定周菜单的全部天（仅保留此一个查询方法） -->
+    <select id="selectWeekMenu" resultMap="MealCalendarDTOResultMap">
+        SELECT
+            mc.id,
+            mc.week_name,
+            mc.day_of_week,
+            mc.breakfast_config_id,
+            b.meal_name AS breakfast_name,
+            mc.lunch_config_id,
+            l.meal_name AS lunch_name,
+            mc.dinner_config_id,
+            d.meal_name AS dinner_name,
+            mc.snack_config_id,
+            s.meal_name AS snack_name,
+            mc.is_active,
+            mc.special_notes,
+            mc.total_estimated_cost,
+            mc.creator_id,
+            mc.creator_name,
+            mc.create_time,
+            mc.update_time
+        FROM meal_calendar mc
+        LEFT JOIN meal_config b ON mc.breakfast_config_id = b.id
+        LEFT JOIN meal_config l ON mc.lunch_config_id = l.id
+        LEFT JOIN meal_config d ON mc.dinner_config_id = d.id
+        LEFT JOIN meal_config s ON mc.snack_config_id = s.id
+        WHERE mc.deleted = 0 AND mc.week_name = #{weekName}
+        ORDER BY mc.day_of_week
+    </select>
+
+
+</mapper>

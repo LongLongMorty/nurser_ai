@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.RoomMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="RoomDTOMap" type="com.nursing.center.dto.RoomDTO">
+        <id column="id" property="id"/>
+        <result column="building_id" property="buildingId"/>
+        <result column="room_no" property="roomNo"/>
+        <result column="room_name" property="roomName"/>
+        <result column="floor_no" property="floorNo"/>
+        <result column="bed_count" property="bedCount"/>
+        <result column="room_type" property="roomType"/>
+        <result column="status" property="status"/>
+        <result column="building_name" property="buildingName"/>
+        <result column="building_no" property="buildingNo"/>
+        <result column="available_beds" property="availableBeds"/>
+        <result column="occupied_beds" property="occupiedBeds"/>
+    </resultMap>
+
+    <!-- 分页查询房间信息 -->
+    <select id="selectRoomPage" resultMap="RoomDTOMap">
+        SELECT
+            r.*,
+            b.building_name,
+            b.building_no,
+            COUNT(CASE WHEN bed.bed_status = 'AVAILABLE' THEN 1 END) as available_beds,
+            COUNT(CASE WHEN bed.bed_status = 'OCCUPIED' THEN 1 END) as occupied_beds
+        FROM room r
+        LEFT JOIN building b ON r.building_id = b.id
+        LEFT JOIN bed bed ON r.id = bed.room_id AND bed.deleted = 0
+        WHERE r.deleted = 0
+        <if test="query.buildingId != null">
+            AND r.building_id = #{query.buildingId}
+        </if>
+        <if test="query.roomNo != null and query.roomNo != ''">
+            AND r.room_no LIKE CONCAT('%', #{query.roomNo}, '%')
+        </if>
+        <if test="query.roomName != null and query.roomName != ''">
+            AND r.room_name LIKE CONCAT('%', #{query.roomName}, '%')
+        </if>
+        <if test="query.floorNo != null">
+            AND r.floor_no = #{query.floorNo}
+        </if>
+        <if test="query.roomType != null">
+            AND r.room_type = #{query.roomType}
+        </if>
+        <if test="query.status != null">
+            AND r.status = #{query.status}
+        </if>
+        GROUP BY r.id
+        ORDER BY b.building_no, r.floor_no, r.room_no
+    </select>
+
+    <!-- 根据ID查询房间详情 -->
+    <select id="selectRoomById" resultMap="RoomDTOMap">
+        SELECT
+            r.*,
+            b.building_name,
+            b.building_no,
+            COUNT(CASE WHEN bed.bed_status = 'AVAILABLE' THEN 1 END) as available_beds,
+            COUNT(CASE WHEN bed.bed_status = 'OCCUPIED' THEN 1 END) as occupied_beds
+        FROM room r
+        LEFT JOIN building b ON r.building_id = b.id
+        LEFT JOIN bed bed ON r.id = bed.room_id AND bed.deleted = 0
+        WHERE r.id = #{id} AND r.deleted = 0
+        GROUP BY r.id
+    </select>
+
+    <!-- 根据楼栋ID获取房间列表 -->
+    <select id="selectRoomsByBuildingId" resultMap="RoomDTOMap">
+        SELECT
+            r.*,
+            b.building_name,
+            b.building_no,
+            COUNT(CASE WHEN bed.bed_status = 'AVAILABLE' THEN 1 END) as available_beds,
+            COUNT(CASE WHEN bed.bed_status = 'OCCUPIED' THEN 1 END) as occupied_beds
+        FROM room r
+        LEFT JOIN building b ON r.building_id = b.id
+        LEFT JOIN bed bed ON r.id = bed.room_id AND bed.deleted = 0
+        WHERE r.building_id = #{buildingId} AND r.deleted = 0 AND r.status = 1
+        GROUP BY r.id
+        ORDER BY r.floor_no, r.room_no
+    </select>
+
+    <!-- 获取所有启用的房间 -->
+    <select id="selectEnabledRooms" resultMap="RoomDTOMap">
+        SELECT
+            r.*,
+            b.building_name,
+            b.building_no,
+            COUNT(CASE WHEN bed.bed_status = 'AVAILABLE' THEN 1 END) as available_beds,
+            COUNT(CASE WHEN bed.bed_status = 'OCCUPIED' THEN 1 END) as occupied_beds
+        FROM room r
+        LEFT JOIN building b ON r.building_id = b.id
+        LEFT JOIN bed bed ON r.id = bed.room_id AND bed.deleted = 0
+        WHERE r.deleted = 0 AND r.status = 1
+        GROUP BY r.id
+        ORDER BY b.building_no, r.floor_no, r.room_no
+    </select>
+
+    <!-- 根据楼栋ID获取按楼层分组的房间列表 -->
+    <select id="selectRoomsGroupedByFloor" resultMap="RoomDTOMap">
+        SELECT
+            r.*,
+            b.building_name,
+            b.building_no,
+            COUNT(CASE WHEN bed.bed_status = 'AVAILABLE' THEN 1 END) as available_beds,
+            COUNT(CASE WHEN bed.bed_status = 'OCCUPIED' THEN 1 END) as occupied_beds
+        FROM room r
+        LEFT JOIN building b ON r.building_id = b.id
+        LEFT JOIN bed bed ON r.id = bed.room_id AND bed.deleted = 0
+        WHERE r.building_id = #{buildingId} AND r.deleted = 0 AND r.status = 1
+        GROUP BY r.id
+        ORDER BY r.floor_no, r.room_no
+    </select>
+
+</mapper>

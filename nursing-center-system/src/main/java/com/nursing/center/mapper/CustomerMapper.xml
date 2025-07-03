@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.CustomerMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="CustomerDTOMap" type="com.nursing.center.dto.CustomerDTO">
+        <id column="id" property="id"/>
+        <result column="customer_name" property="customerName"/>
+        <result column="age" property="age"/>
+        <result column="gender" property="gender"/>
+        <result column="id_card" property="idCard"/>
+        <result column="birth_date" property="birthDate"/>
+        <result column="blood_type" property="bloodType"/>
+        <result column="guardian_name" property="guardianName"/>
+        <result column="guardian_phone" property="guardianPhone"/>
+        <result column="building_id" property="buildingId"/>
+        <result column="room_id" property="roomId"/>
+        <result column="bed_id" property="bedId"/>
+        <result column="check_in_date" property="checkInDate"/>
+        <result column="contract_expire_date" property="contractExpireDate"/>
+        <result column="care_level_id" property="careLevelId"/>
+        <result column="health_manager_id" property="healthManagerId"/>
+        <result column="customer_type" property="customerType"/>
+        <result column="status" property="status"/>
+        <result column="building_name" property="buildingName"/>
+        <result column="room_no" property="roomNo"/>
+        <result column="bed_no" property="bedNo"/>
+        <result column="care_level_name" property="careLevelName"/>        <result column="health_manager_name" property="healthManagerName"/>
+    </resultMap>
+
+    <!-- 外出客户结果映射 -->
+    <resultMap id="OutingCustomerDTOMap" type="com.nursing.center.dto.OutingCustomerDTO">
+        <result column="customer_id" property="customerId"/>
+        <result column="customer_name" property="customerName"/>
+        <result column="age" property="age"/>
+        <result column="id_card" property="idCard"/>
+        <result column="customer_type" property="customerType"/>
+        <result column="bed_info" property="bedInfo"/>
+        <result column="check_in_date" property="checkInDate"/>
+        <result column="contract_expire_date" property="contractExpireDate"/>
+        <result column="health_manager_id" property="healthManagerId"/>
+        <result column="health_manager_name" property="healthManagerName"/>
+        <result column="outing_apply_id" property="outingApplyId"/>
+        <result column="outing_time" property="outingTime"/>
+        <result column="expected_return_time" property="expectedReturnTime"/>
+        <result column="outing_reason" property="outingReason"/>
+    </resultMap>
+
+    <!-- 分页查询客户信息 -->
+    <select id="selectCustomerPage" resultMap="CustomerDTOMap">
+        SELECT
+        c.*,
+        b.building_name,
+        r.room_no,
+        bed.bed_no,
+        cl.level_name as care_level_name,
+        su.real_name as health_manager_name
+        FROM customer c
+        LEFT JOIN building b ON c.building_id = b.id
+        LEFT JOIN room r ON c.room_id = r.id
+        LEFT JOIN bed bed ON c.bed_id = bed.id
+        LEFT JOIN care_level cl ON c.care_level_id = cl.id
+        LEFT JOIN sys_user su ON c.health_manager_id = su.id        WHERE c.deleted = 0
+        <if test="query.customerName != null and query.customerName != ''">
+            AND c.customer_name LIKE CONCAT('%', #{query.customerName}, '%')
+        </if>
+        <if test="query.customerType != null">
+            AND c.customer_type = #{query.customerType}
+        </if>
+        <if test="query.status != null">
+            AND c.status = #{query.status}
+        </if>
+        <if test="query.healthManagerId != null">
+            AND c.health_manager_id = #{query.healthManagerId}
+        </if>
+        ORDER BY c.create_time DESC
+    </select>
+
+    <!-- 根据ID查询客户详细信息 -->
+    <select id="selectCustomerById" resultMap="CustomerDTOMap">
+        SELECT
+            c.*,
+            b.building_name,
+            r.room_no,
+            bed.bed_no,
+            cl.level_name as care_level_name,
+            su.real_name as health_manager_name
+        FROM customer c
+                 LEFT JOIN building b ON c.building_id = b.id
+                 LEFT JOIN room r ON c.room_id = r.id
+                 LEFT JOIN bed bed ON c.bed_id = bed.id
+                 LEFT JOIN care_level cl ON c.care_level_id = cl.id
+                 LEFT JOIN sys_user su ON c.health_manager_id = su.id        WHERE c.id = #{id} AND c.deleted = 0
+    </select>
+
+    <!-- 分页查询外出客户（床位状态为OUT的客户） -->
+    <select id="selectOutingCustomerPage" resultMap="OutingCustomerDTOMap">
+        SELECT
+            c.id as customer_id,
+            c.customer_name,
+            c.age,
+            c.id_card,
+            c.customer_type,
+            CONCAT(b.building_name, '-', r.room_no, '-', bed.bed_no) as bed_info,
+            c.check_in_date,
+            c.contract_expire_date,
+            c.health_manager_id,
+            su.real_name as health_manager_name,
+            oa.id as outing_apply_id,
+            DATE_FORMAT(oa.outing_date, '%Y-%m-%d %H:%i') as outing_time,
+            DATE_FORMAT(oa.expected_return_date, '%Y-%m-%d %H:%i') as expected_return_time,
+            oa.outing_reason
+        FROM customer c
+        INNER JOIN bed bed ON c.bed_id = bed.id AND bed.bed_status = 'OUT'
+        LEFT JOIN room r ON bed.room_id = r.id
+        LEFT JOIN building b ON r.building_id = b.id
+        LEFT JOIN sys_user su ON c.health_manager_id = su.id
+        LEFT JOIN (
+            SELECT DISTINCT 
+                oa1.customer_id,
+                oa1.id,
+                oa1.outing_date,
+                oa1.expected_return_date,
+                oa1.outing_reason
+            FROM outing_apply oa1
+            WHERE oa1.apply_status = 'APPROVED' 
+              AND oa1.actual_return_date IS NULL
+              AND oa1.deleted = 0
+              AND oa1.create_time = (
+                  SELECT MAX(oa2.create_time)
+                  FROM outing_apply oa2
+                  WHERE oa2.customer_id = oa1.customer_id
+                    AND oa2.apply_status = 'APPROVED'
+                    AND oa2.actual_return_date IS NULL
+                    AND oa2.deleted = 0
+              )
+        ) oa ON c.id = oa.customer_id
+        WHERE c.deleted = 0 AND c.status = 1
+        <if test="query.healthManagerId != null">
+            AND c.health_manager_id = #{query.healthManagerId}
+        </if>
+        <if test="query.customerName != null and query.customerName != ''">
+            AND c.customer_name LIKE CONCAT('%', #{query.customerName}, '%')
+        </if>
+        ORDER BY c.customer_name ASC
+    </select>
+
+    <!-- 获取在住客户详细信息 -->
+    <select id="getCustomerDetails" resultType="map">
+        SELECT 
+            c.id,
+            c.customer_name as name,
+            c.gender,
+            c.age,
+            c.guardian_phone as phone,
+            c.guardian_name as emergencyContact,
+            c.guardian_phone as emergencyPhone,
+            CONCAT(b.building_name, '-', r.room_no) as roomNo,
+            bed.bed_no as bedNo,
+            DATE_FORMAT(c.check_in_date, '%Y-%m-%d') as checkInDate,
+            cl.level_name as careLevel,
+            '良好' as healthStatus
+        FROM customer c
+        LEFT JOIN bed bed ON c.bed_id = bed.id
+        LEFT JOIN room r ON c.room_id = r.id
+        LEFT JOIN building b ON c.building_id = b.id
+        LEFT JOIN care_level cl ON c.care_level_id = cl.id
+        WHERE c.status = 1
+        ORDER BY c.customer_name ASC
+    </select>
+
+</mapper>

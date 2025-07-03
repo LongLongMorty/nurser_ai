@@ -1,0 +1,45 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# Node modules (for frontend)
+nursing-center-frontend/node_modules
+nursing-center-frontend/dist
+
+# Maven
+target/
+!target/*.jar
+*.log
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

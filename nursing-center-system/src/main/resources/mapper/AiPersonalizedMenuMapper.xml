@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.AiPersonalizedMenuMapper">
+
+    <!-- 结果映射 -->
+    <resultMap id="BaseResultMap" type="com.nursing.center.entity.AiPersonalizedMenu">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="customer_id" property="customerId" jdbcType="BIGINT"/>
+        <result column="customer_name" property="customerName" jdbcType="VARCHAR"/>
+        <result column="customer_age" property="customerAge" jdbcType="INTEGER"/>
+        <result column="customer_gender" property="customerGender" jdbcType="VARCHAR"/>
+        <result column="menu_date" property="menuDate" jdbcType="DATE"/>
+        <result column="session_id" property="sessionId" jdbcType="VARCHAR"/>
+        <result column="health_conditions" property="healthConditions" jdbcType="VARCHAR"/>
+        <result column="dietary_preferences" property="dietaryPreferences" jdbcType="VARCHAR"/>
+        <result column="allergies" property="allergies" jdbcType="VARCHAR"/>
+        
+        <!-- 早餐 -->
+        <result column="breakfast_name" property="breakfastName" jdbcType="VARCHAR"/>
+        <result column="breakfast_description" property="breakfastDescription" jdbcType="VARCHAR"/>
+        <result column="breakfast_ingredients" property="breakfastIngredients" jdbcType="VARCHAR"/>
+        <result column="breakfast_cooking_method" property="breakfastCookingMethod" jdbcType="VARCHAR"/>
+        <result column="breakfast_calories" property="breakfastCalories" jdbcType="DECIMAL"/>
+        <result column="breakfast_nutrition" property="breakfastNutrition" jdbcType="VARCHAR"/>
+        
+        <!-- 午餐 -->
+        <result column="lunch_name" property="lunchName" jdbcType="VARCHAR"/>
+        <result column="lunch_description" property="lunchDescription" jdbcType="VARCHAR"/>
+        <result column="lunch_ingredients" property="lunchIngredients" jdbcType="VARCHAR"/>
+        <result column="lunch_cooking_method" property="lunchCookingMethod" jdbcType="VARCHAR"/>
+        <result column="lunch_calories" property="lunchCalories" jdbcType="DECIMAL"/>
+        <result column="lunch_nutrition" property="lunchNutrition" jdbcType="VARCHAR"/>
+        
+        <!-- 晚餐 -->
+        <result column="dinner_name" property="dinnerName" jdbcType="VARCHAR"/>
+        <result column="dinner_description" property="dinnerDescription" jdbcType="VARCHAR"/>
+        <result column="dinner_ingredients" property="dinnerIngredients" jdbcType="VARCHAR"/>
+        <result column="dinner_cooking_method" property="dinnerCookingMethod" jdbcType="VARCHAR"/>
+        <result column="dinner_calories" property="dinnerCalories" jdbcType="DECIMAL"/>
+        <result column="dinner_nutrition" property="dinnerNutrition" jdbcType="VARCHAR"/>
+        
+        <!-- 加餐 -->
+        <result column="snack_name" property="snackName" jdbcType="VARCHAR"/>
+        <result column="snack_description" property="snackDescription" jdbcType="VARCHAR"/>
+        <result column="snack_ingredients" property="snackIngredients" jdbcType="VARCHAR"/>
+        <result column="snack_cooking_method" property="snackCookingMethod" jdbcType="VARCHAR"/>
+        <result column="snack_calories" property="snackCalories" jdbcType="DECIMAL"/>
+        <result column="snack_nutrition" property="snackNutrition" jdbcType="VARCHAR"/>
+        
+        <!-- 总计信息 -->
+        <result column="total_calories" property="totalCalories" jdbcType="DECIMAL"/>
+        <result column="total_cost" property="totalCost" jdbcType="DECIMAL"/>
+        <result column="ai_recommendation_reason" property="aiRecommendationReason" jdbcType="VARCHAR"/>
+        <result column="ai_raw_response" property="aiRawResponse" jdbcType="VARCHAR"/>
+        <result column="nutritionist_review" property="nutritionistReview" jdbcType="VARCHAR"/>
+        
+        <result column="is_approved" property="isApproved" jdbcType="TINYINT"/>
+        <result column="approved_by" property="approvedBy" jdbcType="BIGINT"/>
+        <result column="approved_time" property="approvedTime" jdbcType="TIMESTAMP"/>
+        
+        <result column="created_by_user_id" property="createdByUserId" jdbcType="BIGINT"/>
+        <result column="created_by_user_name" property="createdByUserName" jdbcType="VARCHAR"/>
+        
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!-- 基础列 -->
+    <sql id="Base_Column_List">
+        id, customer_id, customer_name, customer_age, customer_gender, menu_date, session_id,
+        health_conditions, dietary_preferences, allergies,
+        breakfast_name, breakfast_description, breakfast_ingredients, breakfast_cooking_method, breakfast_calories, breakfast_nutrition,
+        lunch_name, lunch_description, lunch_ingredients, lunch_cooking_method, lunch_calories, lunch_nutrition,
+        dinner_name, dinner_description, dinner_ingredients, dinner_cooking_method, dinner_calories, dinner_nutrition,
+        snack_name, snack_description, snack_ingredients, snack_cooking_method, snack_calories, snack_nutrition,
+        total_calories, total_cost, ai_recommendation_reason, ai_raw_response, nutritionist_review,
+        is_approved, approved_by, approved_time, created_by_user_id, created_by_user_name,
+        create_time, update_time
+    </sql>
+
+    <!-- 根据客户ID和日期查询 -->
+    <select id="selectByCustomerAndDate" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM ai_personalized_menu
+        WHERE customer_id = #{customerId} AND menu_date = #{menuDate}
+    </select>
+
+    <!-- 查询客户菜单历史 -->
+    <select id="selectCustomerMenuHistory" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM ai_personalized_menu
+        WHERE customer_id = #{customerId}
+        <if test="startDate != null">
+            AND menu_date &gt;= #{startDate}
+        </if>
+        <if test="endDate != null">
+            AND menu_date &lt;= #{endDate}
+        </if>
+        ORDER BY menu_date DESC
+    </select>
+
+    <!-- 插入个性化菜单 -->
+    <insert id="insert" parameterType="com.nursing.center.entity.AiPersonalizedMenu" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO ai_personalized_menu (
+            customer_id, customer_name, customer_age, customer_gender, menu_date, session_id,
+            health_conditions, dietary_preferences, allergies,
+            breakfast_name, breakfast_description, breakfast_ingredients, breakfast_cooking_method, breakfast_calories, breakfast_nutrition,
+            lunch_name, lunch_description, lunch_ingredients, lunch_cooking_method, lunch_calories, lunch_nutrition,
+            dinner_name, dinner_description, dinner_ingredients, dinner_cooking_method, dinner_calories, dinner_nutrition,
+            snack_name, snack_description, snack_ingredients, snack_cooking_method, snack_calories, snack_nutrition,
+            total_calories, total_cost, ai_recommendation_reason, ai_raw_response, nutritionist_review,
+            is_approved, approved_by, approved_time, created_by_user_id, created_by_user_name,
+            create_time, update_time
+        ) VALUES (
+            #{customerId}, #{customerName}, #{customerAge}, #{customerGender}, #{menuDate}, #{sessionId},
+            #{healthConditions}, #{dietaryPreferences}, #{allergies},
+            #{breakfastName}, #{breakfastDescription}, #{breakfastIngredients}, #{breakfastCookingMethod}, #{breakfastCalories}, #{breakfastNutrition},
+            #{lunchName}, #{lunchDescription}, #{lunchIngredients}, #{lunchCookingMethod}, #{lunchCalories}, #{lunchNutrition},
+            #{dinnerName}, #{dinnerDescription}, #{dinnerIngredients}, #{dinnerCookingMethod}, #{dinnerCalories}, #{dinnerNutrition},
+            #{snackName}, #{snackDescription}, #{snackIngredients}, #{snackCookingMethod}, #{snackCalories}, #{snackNutrition},
+            #{totalCalories}, #{totalCost}, #{aiRecommendationReason}, #{aiRawResponse}, #{nutritionistReview},
+            #{isApproved}, #{approvedBy}, #{approvedTime}, #{createdByUserId}, #{createdByUserName},
+            #{createTime}, #{updateTime}
+        )
+    </insert>
+
+    <!-- 更新个性化菜单 -->
+    <update id="updateById" parameterType="com.nursing.center.entity.AiPersonalizedMenu">
+        UPDATE ai_personalized_menu
+        <set>
+            <if test="customerName != null">customer_name = #{customerName},</if>
+            <if test="customerAge != null">customer_age = #{customerAge},</if>
+            <if test="customerGender != null">customer_gender = #{customerGender},</if>
+            <if test="menuDate != null">menu_date = #{menuDate},</if>
+            <if test="healthConditions != null">health_conditions = #{healthConditions},</if>
+            <if test="dietaryPreferences != null">dietary_preferences = #{dietaryPreferences},</if>
+            <if test="allergies != null">allergies = #{allergies},</if>
+            
+            <if test="breakfastName != null">breakfast_name = #{breakfastName},</if>
+            <if test="breakfastDescription != null">breakfast_description = #{breakfastDescription},</if>
+            <if test="breakfastIngredients != null">breakfast_ingredients = #{breakfastIngredients},</if>
+            <if test="breakfastCookingMethod != null">breakfast_cooking_method = #{breakfastCookingMethod},</if>
+            <if test="breakfastCalories != null">breakfast_calories = #{breakfastCalories},</if>
+            <if test="breakfastNutrition != null">breakfast_nutrition = #{breakfastNutrition},</if>
+            
+            <if test="lunchName != null">lunch_name = #{lunchName},</if>
+            <if test="lunchDescription != null">lunch_description = #{lunchDescription},</if>
+            <if test="lunchIngredients != null">lunch_ingredients = #{lunchIngredients},</if>
+            <if test="lunchCookingMethod != null">lunch_cooking_method = #{lunchCookingMethod},</if>
+            <if test="lunchCalories != null">lunch_calories = #{lunchCalories},</if>
+            <if test="lunchNutrition != null">lunch_nutrition = #{lunchNutrition},</if>
+            
+            <if test="dinnerName != null">dinner_name = #{dinnerName},</if>
+            <if test="dinnerDescription != null">dinner_description = #{dinnerDescription},</if>
+            <if test="dinnerIngredients != null">dinner_ingredients = #{dinnerIngredients},</if>
+            <if test="dinnerCookingMethod != null">dinner_cooking_method = #{dinnerCookingMethod},</if>
+            <if test="dinnerCalories != null">dinner_calories = #{dinnerCalories},</if>
+            <if test="dinnerNutrition != null">dinner_nutrition = #{dinnerNutrition},</if>
+            
+            <if test="snackName != null">snack_name = #{snackName},</if>
+            <if test="snackDescription != null">snack_description = #{snackDescription},</if>
+            <if test="snackIngredients != null">snack_ingredients = #{snackIngredients},</if>
+            <if test="snackCookingMethod != null">snack_cooking_method = #{snackCookingMethod},</if>
+            <if test="snackCalories != null">snack_calories = #{snackCalories},</if>
+            <if test="snackNutrition != null">snack_nutrition = #{snackNutrition},</if>
+            
+            <if test="totalCalories != null">total_calories = #{totalCalories},</if>
+            <if test="totalCost != null">total_cost = #{totalCost},</if>
+            <if test="aiRecommendationReason != null">ai_recommendation_reason = #{aiRecommendationReason},</if>
+            <if test="aiRawResponse != null">ai_raw_response = #{aiRawResponse},</if>
+            <if test="nutritionistReview != null">nutritionist_review = #{nutritionistReview},</if>
+            
+            <if test="isApproved != null">is_approved = #{isApproved},</if>
+            <if test="approvedBy != null">approved_by = #{approvedBy},</if>
+            <if test="approvedTime != null">approved_time = #{approvedTime},</if>
+            
+            update_time = NOW()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 根据ID删除 -->
+    <delete id="deleteById">
+        DELETE FROM ai_personalized_menu WHERE id = #{id}
+    </delete>
+
+    <!-- 根据ID查询 -->
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM ai_personalized_menu
+        WHERE id = #{id}
+    </select>
+
+</mapper>

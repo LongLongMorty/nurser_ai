@@ -1,0 +1,1185 @@
+2025-06-25 14:01:35.121  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 10832 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:01:35.130  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:01:35.209  INFO 10832 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+2025-06-25 14:01:35.209  INFO 10832 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-25 14:01:35.209  INFO 10832 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-25 14:01:36.400  INFO 10832 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:01:36.408  INFO 10832 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:01:36.408  INFO 10832 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:01:36.470  INFO 10832 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:01:36.470  INFO 10832 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1260 ms
+2025-06-25 14:01:37.457  INFO 10832 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@581c218e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c774908, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a69ca04, org.springframework.security.web.header.HeaderWriterFilter@142f5fa9, org.springframework.web.filter.CorsFilter@542811be, org.springframework.security.web.authentication.logout.LogoutFilter@4372c2ee, com.nursing.center.security.JwtAuthenticationFilter@797e154, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f18238b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9437dbd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1ab0bbce, org.springframework.security.web.session.SessionManagementFilter@525fd8fe, org.springframework.security.web.access.ExceptionTranslationFilter@66be0f89, org.springframework.security.web.access.intercept.AuthorizationFilter@7c0849fe]
+2025-06-25 14:01:37.777  INFO 10832 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:01:37.810  INFO 10832 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:01:37.821  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.063 seconds (JVM running for 4.054)
+2025-06-25 14:01:48.281  INFO 10832 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:01:48.281  INFO 10832 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:01:48.282  INFO 10832 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-25 14:01:48.298  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/dashboard/care-level-distribution
+2025-06-25 14:01:48.298  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/dashboard/recent-activities
+2025-06-25 14:01:48.298  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/dashboard/stats
+2025-06-25 14:01:48.299  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:48.299  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:48.299  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:48.299  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:48.299  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:48.299  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:48.370 ERROR 10832 --- [http-nio-8080-exec-1] c.nursing.center.common.utils.JwtUtils   : 解析JWT token失败: JWT expired at 2025-06-24T21:08:19Z. Current time: 2025-06-25T14:01:48Z, a difference of 60809368 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-06-25 14:01:48.370 ERROR 10832 --- [http-nio-8080-exec-2] c.nursing.center.common.utils.JwtUtils   : 解析JWT token失败: JWT expired at 2025-06-24T21:08:19Z. Current time: 2025-06-25T14:01:48Z, a difference of 60809368 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-06-25 14:01:48.370 ERROR 10832 --- [http-nio-8080-exec-3] c.nursing.center.common.utils.JwtUtils   : 解析JWT token失败: JWT expired at 2025-06-24T21:08:19Z. Current time: 2025-06-25T14:01:48Z, a difference of 60809368 milliseconds.  Allowed clock skew: 0 milliseconds.
+2025-06-25 14:01:48.370  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: null
+2025-06-25 14:01:48.370  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: null
+2025-06-25 14:01:48.370  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: null
+2025-06-25 14:01:48.376 ERROR 10832 --- [http-nio-8080-exec-1] c.n.c.s.JwtAuthenticationEntryPoint      : 未授权访问: Full authentication is required to access this resource
+2025-06-25 14:01:48.376 ERROR 10832 --- [http-nio-8080-exec-2] c.n.c.s.JwtAuthenticationEntryPoint      : 未授权访问: Full authentication is required to access this resource
+2025-06-25 14:01:48.376 ERROR 10832 --- [http-nio-8080-exec-3] c.n.c.s.JwtAuthenticationEntryPoint      : 未授权访问: Full authentication is required to access this resource
+2025-06-25 14:01:49.762  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: POST /api/auth/login
+2025-06-25 14:01:49.762  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 不存在
+2025-06-25 14:01:49.762  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 请求中未包含JWT token
+2025-06-25 14:01:49.951  WARN 10832 --- [http-nio-8080-exec-4] c.b.m.c.t.support.ReflectLambdaMeta      : Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @21de60b4
+2025-06-25 14:01:49.961  INFO 10832 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-25 14:01:50.206  INFO 10832 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-25 14:01:50.338  INFO 10832 --- [http-nio-8080-exec-4] c.n.center.service.impl.AuthServiceImpl  : 用户登录成功: admin
+2025-06-25 14:01:51.183  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/dashboard/stats
+2025-06-25 14:01:51.183  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:51.183  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:51.187  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:01:51.193  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:51.195  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:01:51.196  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:51.198  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/dashboard/recent-activities
+2025-06-25 14:01:51.198  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:51.198  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:51.199  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/dashboard/care-level-distribution
+2025-06-25 14:01:51.199  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:01:51.199  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:51.199  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:51.200  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:01:51.207  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:51.208  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:51.209  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:01:51.209  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:51.210  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:01:51.210  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:54.796  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/customer/page
+2025-06-25 14:01:54.796  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:54.796  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:54.796  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:01:54.804  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:54.804  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:01:54.804  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:55.795  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/customer/page
+2025-06-25 14:01:55.795  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:55.795  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:55.795  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:01:55.795  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/building/enabled
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:01:55.803  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:57.065  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/checkout-apply/page
+2025-06-25 14:01:57.065  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:57.065  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:57.067  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:01:57.067  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:57.067  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:01:57.067  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:57.994  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/customer/page
+2025-06-25 14:01:57.994  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:01:57.994  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:01:57.994  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:01:58.002  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:01:58.002  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:01:58.002  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:02:01.938  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:02:01.938  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:02:01.938  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:02:01.943  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:02:01.946  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:02:01.946  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:02:01.946  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:02:15.419  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:02:15.419  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:02:15.419  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:02:15.419  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:02:15.419  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:02:15.419  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:02:15.419  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:03:32.311  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:03:32.311  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:03:32.311  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:03:32.311  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:03:32.317  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:03:32.319  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:03:32.319  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:06:40.808  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:06:40.808  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:06:40.808  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:06:40.809  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:06:40.814  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:06:40.815  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:06:40.816  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:06:52.301  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:06:52.301  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:06:52.301  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:06:52.301  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:06:52.306  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:06:52.309  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:06:52.309  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:06:55.448  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:06:55.448  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:06:55.448  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:06:55.448  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:06:55.454  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:06:55.454  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:06:55.454  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:07:04.472  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:07:04.472  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:07:04.472  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:07:04.472  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:07:04.478  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:07:04.478  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:07:04.478  INFO 10832 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:07:06.805  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/user/page
+2025-06-25 14:07:06.805  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:07:06.805  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:07:06.805  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:07:06.805  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:07:06.805  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:07:06.805  INFO 10832 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:13.686  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:13:13.686  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:13:13.686  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:13:13.691  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:13:13.691  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:13.691  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:13:13.691  INFO 10832 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:14.279  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:13:14.279  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:13:14.279  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:13:14.279  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:13:14.279  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:13:14.279  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:13:14.279  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:13:14.279  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:13:14.285  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:14.285  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:14.285  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:13:14.285  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:13:14.285  INFO 10832 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:14.285  INFO 10832 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:14.293 ERROR 10832 --- [http-nio-8080-exec-2] c.n.c.c.e.GlobalExceptionHandler         : 权限不足: 不允许访问
+2025-06-25 14:13:14.297  WARN 10832 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.access.AccessDeniedException: 不允许访问]
+2025-06-25 14:13:18.184  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC2%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:13:18.184  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:13:18.184  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:13:18.184  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:13:18.190  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:18.190  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:13:18.192  INFO 10832 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:18.192 ERROR 10832 --- [http-nio-8080-exec-4] c.n.c.c.e.GlobalExceptionHandler         : 权限不足: 不允许访问
+2025-06-25 14:13:18.192  WARN 10832 --- [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.access.AccessDeniedException: 不允许访问]
+2025-06-25 14:13:19.768  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC3%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:13:19.768  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:13:19.768  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:13:19.768  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:13:19.768  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:19.768  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:13:19.768  INFO 10832 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:19.768 ERROR 10832 --- [http-nio-8080-exec-6] c.n.c.c.e.GlobalExceptionHandler         : 权限不足: 不允许访问
+2025-06-25 14:13:19.776  WARN 10832 --- [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.access.AccessDeniedException: 不允许访问]
+2025-06-25 14:13:37.142  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:13:37.142  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:13:37.142  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:13:37.150  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:13:37.150  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:37.150  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:13:37.150  INFO 10832 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:13:37.150 ERROR 10832 --- [http-nio-8080-exec-5] c.n.c.c.e.GlobalExceptionHandler         : 权限不足: 不允许访问
+2025-06-25 14:13:37.158  WARN 10832 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.access.AccessDeniedException: 不允许访问]
+2025-06-25 14:14:23.702  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:14:23.702  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:14:23.702  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:14:23.702  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:14:23.704  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:14:23.704  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:14:23.704  INFO 10832 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:14:23.710  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:14:23.710  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:14:23.710  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:14:23.712  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:14:23.712  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:14:23.712  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:14:23.712  INFO 10832 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:14:23.719 ERROR 10832 --- [http-nio-8080-exec-8] c.n.c.c.e.GlobalExceptionHandler         : 权限不足: 不允许访问
+2025-06-25 14:14:23.719  WARN 10832 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.access.AccessDeniedException: 不允许访问]
+2025-06-25 14:15:23.152  INFO 10832 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-25 14:15:23.185  INFO 10832 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:15:23.185  INFO 10832 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-06-25 14:15:23.185  WARN 10832 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-06-25 14:15:23.199  INFO 10832 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-25 14:15:23.209  INFO 10832 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-25 14:15:23.285  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 10832 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:15:23.285  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:15:23.637  INFO 10832 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:15:23.637  INFO 10832 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:15:23.637  INFO 10832 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:15:23.653  INFO 10832 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:15:23.653  INFO 10832 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 366 ms
+2025-06-25 14:15:24.200  INFO 10832 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1c197e0c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4943d230, org.springframework.security.web.context.SecurityContextPersistenceFilter@502859fd, org.springframework.security.web.header.HeaderWriterFilter@1213474e, org.springframework.web.filter.CorsFilter@2d6f82bf, org.springframework.security.web.authentication.logout.LogoutFilter@7f3b695, com.nursing.center.security.JwtAuthenticationFilter@754552d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e420eb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@cc52e0e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a30f936, org.springframework.security.web.session.SessionManagementFilter@1761c768, org.springframework.security.web.access.ExceptionTranslationFilter@4943ab78, org.springframework.security.web.access.intercept.AuthorizationFilter@2d9b5662]
+2025-06-25 14:15:24.344  INFO 10832 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:15:24.353  INFO 10832 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:15:24.361  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 1.103 seconds (JVM running for 830.596)
+2025-06-25 14:15:24.361  INFO 10832 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:16:02.647  INFO 10832 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-25 14:16:02.683  INFO 10832 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:16:02.748  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 10832 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:16:02.748  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:16:03.031  INFO 10832 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:16:03.031  INFO 10832 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:16:03.031  INFO 10832 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:16:03.049  INFO 10832 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:16:03.049  INFO 10832 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 299 ms
+2025-06-25 14:16:03.537  INFO 10832 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2ca13bf3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12e49fcf, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a8c91c, org.springframework.security.web.header.HeaderWriterFilter@292fce03, org.springframework.web.filter.CorsFilter@2696730f, org.springframework.security.web.authentication.logout.LogoutFilter@78a8da62, com.nursing.center.security.JwtAuthenticationFilter@7bbf6dc7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31acba61, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66242581, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c14173d, org.springframework.security.web.session.SessionManagementFilter@240fafbc, org.springframework.security.web.access.ExceptionTranslationFilter@7548bf8f, org.springframework.security.web.access.intercept.AuthorizationFilter@6b4c2888]
+2025-06-25 14:16:03.663  INFO 10832 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:16:03.675  INFO 10832 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:16:03.678  INFO 10832 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 0.952 seconds (JVM running for 869.911)
+2025-06-25 14:16:03.679  INFO 10832 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:16:39.841  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 26000 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:16:39.841  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:16:39.887  INFO 26000 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+2025-06-25 14:16:39.887  INFO 26000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-25 14:16:39.887  INFO 26000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-25 14:16:41.075  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:16:41.084  INFO 26000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:16:41.084  INFO 26000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:16:41.140  INFO 26000 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:16:41.140  INFO 26000 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1244 ms
+2025-06-25 14:16:42.241  INFO 26000 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@36dd799f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f18238b, org.springframework.security.web.context.SecurityContextPersistenceFilter@765d8c61, org.springframework.security.web.header.HeaderWriterFilter@61def4d9, org.springframework.web.filter.CorsFilter@9437dbd, org.springframework.security.web.authentication.logout.LogoutFilter@69a66f21, com.nursing.center.security.JwtAuthenticationFilter@6466a6a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54e0f7a7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6eb6b2e0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d2ebf7b, org.springframework.security.web.session.SessionManagementFilter@7a17ce7d, org.springframework.security.web.access.ExceptionTranslationFilter@54fb2da3, org.springframework.security.web.access.intercept.AuthorizationFilter@5348c7b5]
+2025-06-25 14:16:42.605  INFO 26000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:16:42.642  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:16:42.654  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.166 seconds (JVM running for 4.118)
+2025-06-25 14:16:45.864  INFO 26000 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:16:45.864  INFO 26000 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:16:45.865  INFO 26000 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-25 14:16:45.880  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:16:45.880  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:45.882  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:45.882  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:45.882  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:45.882  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:45.933  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:45.933  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:45.976  WARN 26000 --- [http-nio-8080-exec-2] c.b.m.c.t.support.ReflectLambdaMeta      : Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @21de60b4
+2025-06-25 14:16:45.987  INFO 26000 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-25 14:16:46.219  INFO 26000 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-25 14:16:46.276  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:46.276  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:46.276  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:46.276  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:46.278  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:46.278  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:48.423  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:48.423  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:48.431  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:48.431  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:48.431  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:48.431  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:48.431  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:48.431  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:48.437  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:48.437  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:48.437  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:48.437  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:48.437  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:48.437  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:48.587  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:48.587  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:48.587  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:48.588  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:48.591  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:48.592  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:48.592  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:48.892  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:48.892  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:48.892  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:48.893  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:48.896  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:48.897  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:48.897  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:49.126  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:49.126  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:49.126  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:49.127  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:49.130  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:49.131  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:49.131  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:49.350  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:49.350  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:49.350  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:49.351  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:49.358  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:49.359  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:49.359  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:49.571  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:49.572  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:49.572  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:49.573  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:49.576  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:49.578  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:49.578  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:51.972  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:16:51.972  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:16:51.972  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:16:51.972  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:16:51.974  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:16:51.974  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:16:51.974  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:21:01.433  INFO 26000 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 14:21:01.651  INFO 26000 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:21:01.652  INFO 26000 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-06-25 14:21:01.655  WARN 26000 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-06-25 14:21:01.665  INFO 26000 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-25 14:21:01.690  INFO 26000 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-25 14:21:15.426  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 26000 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:21:15.427  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:21:16.092  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:21:16.093  INFO 26000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:21:16.093  INFO 26000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:21:16.131  INFO 26000 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:21:16.132  INFO 26000 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 703 ms
+2025-06-25 14:21:17.844  INFO 26000 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7757b597, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16f95790, org.springframework.security.web.context.SecurityContextPersistenceFilter@6d6185c6, org.springframework.security.web.header.HeaderWriterFilter@59721560, org.springframework.web.filter.CorsFilter@26d37460, org.springframework.security.web.authentication.logout.LogoutFilter@7bb7f0, com.nursing.center.security.JwtAuthenticationFilter@182e84ce, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1271ce06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5be1103d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e8d9d1, org.springframework.security.web.session.SessionManagementFilter@43af243c, org.springframework.security.web.access.ExceptionTranslationFilter@53e59155, org.springframework.security.web.access.intercept.AuthorizationFilter@595f68db]
+2025-06-25 14:21:18.591  INFO 26000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:21:18.649  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:21:18.665  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.298 seconds (JVM running for 280.129)
+2025-06-25 14:21:18.669  INFO 26000 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:24:27.998  INFO 26000 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:24:27.998  INFO 26000 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:24:28.000  INFO 26000 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-06-25 14:24:28.000  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:24:28.000  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:24:28.000  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:24:28.002  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:24:28.006  INFO 26000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-06-25 14:24:28.024  INFO 26000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-06-25 14:24:28.027  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:28.029  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:24:28.029  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:28.737  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:24:28.737  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:24:28.737  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:24:28.737  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:24:28.742  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:28.742  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:24:28.742  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:29.571  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:24:29.571  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:24:29.571  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:24:29.573  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:24:29.575  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:29.576  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:24:29.576  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:44.507  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:24:44.509  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:24:44.509  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:24:44.509  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:24:44.511  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:24:44.511  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:24:44.511  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:24:44.512  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:24:44.514  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:44.515  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:24:44.515  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:44.515  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:24:44.517  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:24:44.517  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:27:42.350  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:27:42.350  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:27:42.350  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:27:42.350  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:27:42.350  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:27:42.350  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:27:42.350  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:27:42.350  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:27:42.355  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:27:42.355  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:27:42.355  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:27:42.355  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:27:42.355  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:27:42.355  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:30.869  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:28:30.869  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:30.869  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:30.870  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:30.871  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E5%BD%93%E5%89%8D%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:28:30.871  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:30.871  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:30.871  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:30.873  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:30.874  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:30.874  INFO 26000 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:30.874  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:30.874  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:30.874  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:53.761  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E5%BD%93%E5%89%8D%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:28:53.761  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:28:53.761  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:53.761  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:53.761  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:53.762  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:53.762  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:53.762  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:53.765  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:53.765  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:53.766  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:53.766  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:53.766  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:53.766  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:56.506  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:28:56.506  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:56.506  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:56.506  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:56.509  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:56.509  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:56.509  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:57.072  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:28:57.072  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:57.072  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:57.073  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:57.076  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:57.077  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:57.077  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:57.624  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:28:57.624  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:57.624  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:57.625  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:57.628  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:57.628  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:57.628  INFO 26000 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:57.850  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:28:57.850  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:57.850  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:57.851  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:57.853  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:57.854  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:57.854  INFO 26000 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:58.054  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:28:58.054  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:58.054  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:58.054  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:58.058  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:58.059  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:58.059  INFO 26000 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:58.265  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:28:58.265  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:28:58.265  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:28:58.266  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:28:58.269  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:28:58.270  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:28:58.270  INFO 26000 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:30:19.242  INFO 26000 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-25 14:30:19.279  INFO 26000 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:30:19.279  INFO 26000 --- [Thread-11] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-06-25 14:30:19.280  WARN 26000 --- [Thread-11] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-06-25 14:30:19.283  INFO 26000 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-06-25 14:30:19.290  INFO 26000 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-06-25 14:30:19.354  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 26000 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:30:19.354  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:30:19.651  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:30:19.651  INFO 26000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:30:19.651  INFO 26000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:30:19.667  INFO 26000 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:30:19.667  INFO 26000 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 311 ms
+2025-06-25 14:30:20.157  INFO 26000 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@76934065, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@42c7819d, org.springframework.security.web.context.SecurityContextPersistenceFilter@5288dfe4, org.springframework.security.web.header.HeaderWriterFilter@20a6bdf2, org.springframework.web.filter.CorsFilter@3bea34, org.springframework.security.web.authentication.logout.LogoutFilter@4c5e32a6, com.nursing.center.security.JwtAuthenticationFilter@234fb14d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77690d02, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62357730, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@444bd4d5, org.springframework.security.web.session.SessionManagementFilter@20734834, org.springframework.security.web.access.ExceptionTranslationFilter@2b61d4bb, org.springframework.security.web.access.intercept.AuthorizationFilter@5be3fafc]
+2025-06-25 14:30:20.308  INFO 26000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:30:20.321  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:30:20.324  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 0.996 seconds (JVM running for 821.789)
+2025-06-25 14:30:20.326  INFO 26000 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:32:50.179  INFO 26000 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2025-06-25 14:32:50.215  INFO 26000 --- [Thread-18] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:32:50.304  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 26000 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:32:50.304  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:32:50.591  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:32:50.591  INFO 26000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:32:50.591  INFO 26000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:32:50.607  INFO 26000 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:32:50.607  INFO 26000 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 301 ms
+2025-06-25 14:32:51.054  INFO 26000 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3119f702, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4265bfce, org.springframework.security.web.context.SecurityContextPersistenceFilter@484d0727, org.springframework.security.web.header.HeaderWriterFilter@6cb82c02, org.springframework.web.filter.CorsFilter@6b69fd83, org.springframework.security.web.authentication.logout.LogoutFilter@4286213e, com.nursing.center.security.JwtAuthenticationFilter@264e5609, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59284d65, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74dda27e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@672feac7, org.springframework.security.web.session.SessionManagementFilter@2a8783da, org.springframework.security.web.access.ExceptionTranslationFilter@4fcbc7ec, org.springframework.security.web.access.intercept.AuthorizationFilter@40899879]
+2025-06-25 14:32:51.171  INFO 26000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:32:51.185  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:32:51.188  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 0.906 seconds (JVM running for 972.652)
+2025-06-25 14:32:51.189  INFO 26000 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:33:03.204  INFO 26000 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-06-25 14:33:03.241  INFO 26000 --- [Thread-22] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:33:03.320  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 26000 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:33:03.320  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:33:03.585  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:33:03.585  INFO 26000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:33:03.585  INFO 26000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:33:03.599  INFO 26000 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:33:03.599  INFO 26000 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 277 ms
+2025-06-25 14:33:04.039  INFO 26000 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@491da283, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bd319a2, org.springframework.security.web.context.SecurityContextPersistenceFilter@23f8266b, org.springframework.security.web.header.HeaderWriterFilter@38dd12ff, org.springframework.web.filter.CorsFilter@3e89ddd5, org.springframework.security.web.authentication.logout.LogoutFilter@1dc6e0c, com.nursing.center.security.JwtAuthenticationFilter@620a9eea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5db22b37, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@da89094, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4aff8b5f, org.springframework.security.web.session.SessionManagementFilter@195efda3, org.springframework.security.web.access.ExceptionTranslationFilter@3cd84d9e, org.springframework.security.web.access.intercept.AuthorizationFilter@49e0398]
+2025-06-25 14:33:04.182  INFO 26000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:33:04.195  INFO 26000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:33:04.198  INFO 26000 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 0.897 seconds (JVM running for 985.662)
+2025-06-25 14:33:04.198  INFO 26000 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:33:41.941  INFO 26000 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:33:41.941  INFO 26000 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:33:41.941  INFO 26000 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-25 14:33:41.943  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:33:41.943  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:33:41.943  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:33:41.943  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:33:41.943  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:33:41.943  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:33:41.944  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:33:41.944  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:33:41.947  INFO 26000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2025-06-25 14:33:41.962  INFO 26000 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2025-06-25 14:33:41.967  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:33:41.967  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:33:41.967  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:33:41.967  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:33:41.967  INFO 26000 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:33:41.967  INFO 26000 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:34:08.324  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:34:08.324  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:34:08.324  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:34:08.324  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:34:08.327  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:34:08.327  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:34:08.328  INFO 26000 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:34:42.964  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:34:42.964  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:34:42.964  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:34:42.965  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:34:42.967  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:34:42.967  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:34:42.967  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:34:42.967  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:34:42.968  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:34:42.970  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:34:42.970  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:34:42.970  INFO 26000 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:34:42.970  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:34:42.970  INFO 26000 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:36:04.950  INFO 26000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2025-06-25 14:36:04.958  INFO 26000 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2025-06-25 14:36:12.330  INFO 22892 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 22892 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:36:12.330  INFO 22892 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:36:12.378  INFO 22892 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+2025-06-25 14:36:12.378  INFO 22892 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-25 14:36:12.378  INFO 22892 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-25 14:36:13.573  INFO 22892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:36:13.581  INFO 22892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:36:13.581  INFO 22892 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:36:13.647  INFO 22892 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:36:13.647  INFO 22892 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1269 ms
+2025-06-25 14:36:14.775  INFO 22892 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16e91730, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75be3fbf, org.springframework.security.web.context.SecurityContextPersistenceFilter@31e3b0f0, org.springframework.security.web.header.HeaderWriterFilter@1e148667, org.springframework.web.filter.CorsFilter@3265dd59, org.springframework.security.web.authentication.logout.LogoutFilter@16acaa7a, com.nursing.center.security.JwtAuthenticationFilter@443ed7a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2195646b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42996401, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a6cf795, org.springframework.security.web.session.SessionManagementFilter@75a96a6c, org.springframework.security.web.access.ExceptionTranslationFilter@33ee76bc, org.springframework.security.web.access.intercept.AuthorizationFilter@36b90793]
+2025-06-25 14:36:15.214  INFO 22892 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:36:15.247  INFO 22892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:36:15.264  INFO 22892 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.28 seconds (JVM running for 4.171)
+2025-06-25 14:36:24.217  INFO 22892 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:36:24.217  INFO 22892 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:36:24.217  INFO 22892 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-25 14:36:24.235  INFO 22892 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:36:24.235  INFO 22892 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:36:24.235  INFO 22892 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:36:24.275  INFO 22892 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:36:24.315  WARN 22892 --- [http-nio-8080-exec-1] c.b.m.c.t.support.ReflectLambdaMeta      : Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @21de60b4
+2025-06-25 14:36:24.324  INFO 22892 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-25 14:36:24.530  INFO 22892 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-25 14:36:24.571  INFO 22892 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:36:24.571  INFO 22892 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:36:24.571  INFO 22892 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:36:25.217  INFO 22892 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:36:25.217  INFO 22892 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:36:25.217  INFO 22892 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:36:25.217  INFO 22892 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:36:25.222  INFO 22892 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:36:25.224  INFO 22892 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:36:25.224  INFO 22892 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:36:25.441  INFO 22892 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:36:25.441  INFO 22892 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:36:25.441  INFO 22892 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:36:25.441  INFO 22892 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:36:25.441  INFO 22892 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:36:25.449  INFO 22892 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:36:25.449  INFO 22892 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:37:57.074  INFO 22892 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:37:57.075  INFO 22892 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:37:57.075  INFO 22892 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:37:57.075  INFO 22892 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:37:57.081  INFO 22892 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:37:57.082  INFO 22892 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:37:57.082  INFO 22892 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:38:08.145  INFO 22892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-25 14:38:08.153  INFO 22892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-25 14:38:10.964  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 5756 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:38:10.968  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:38:11.019  INFO 5756 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+2025-06-25 14:38:11.019  INFO 5756 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-25 14:38:11.019  INFO 5756 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-25 14:38:12.234  INFO 5756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:38:12.242  INFO 5756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:38:12.242  INFO 5756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:38:12.307  INFO 5756 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:38:12.307  INFO 5756 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1288 ms
+2025-06-25 14:38:13.438  INFO 5756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45ab5268, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@eadaa4b, org.springframework.security.web.context.SecurityContextPersistenceFilter@b1f109d, org.springframework.security.web.header.HeaderWriterFilter@d9cc52e, org.springframework.web.filter.CorsFilter@41c18f3, org.springframework.security.web.authentication.logout.LogoutFilter@1514ba05, com.nursing.center.security.JwtAuthenticationFilter@e47bfda, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@464da898, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c4a0295, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36b90793, org.springframework.security.web.session.SessionManagementFilter@4148697e, org.springframework.security.web.access.ExceptionTranslationFilter@46dafa98, org.springframework.security.web.access.intercept.AuthorizationFilter@67a758cb]
+2025-06-25 14:38:13.825  INFO 5756 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:38:13.865  INFO 5756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:38:13.874  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.273 seconds (JVM running for 4.025)
+2025-06-25 14:38:16.021  INFO 5756 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:38:16.021  INFO 5756 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:38:16.021  INFO 5756 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-25 14:38:16.038  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:38:16.038  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:38:16.038  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:38:16.095  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:38:16.132  WARN 5756 --- [http-nio-8080-exec-1] c.b.m.c.t.support.ReflectLambdaMeta      : Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @21de60b4
+2025-06-25 14:38:16.137  INFO 5756 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-25 14:38:16.343  INFO 5756 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-25 14:38:16.385  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:38:16.385  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:38:16.385  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:39:36.631  INFO 5756 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 14:39:36.945  INFO 5756 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:39:36.947  INFO 5756 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-06-25 14:39:36.955  WARN 5756 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-06-25 14:39:36.966  INFO 5756 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-25 14:39:36.995  INFO 5756 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-25 14:39:48.981  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 5756 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:39:48.982  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:39:49.662  INFO 5756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:39:49.663  INFO 5756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:39:49.663  INFO 5756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:39:49.693  INFO 5756 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:39:49.694  INFO 5756 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 710 ms
+2025-06-25 14:39:51.117  INFO 5756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@fd8c327, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bdc549d, org.springframework.security.web.context.SecurityContextPersistenceFilter@479f3c90, org.springframework.security.web.header.HeaderWriterFilter@6b18c405, org.springframework.web.filter.CorsFilter@4fc10914, org.springframework.security.web.authentication.logout.LogoutFilter@70d76d7e, com.nursing.center.security.JwtAuthenticationFilter@783d37a1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a239b4b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37365ce6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6fc6b9d7, org.springframework.security.web.session.SessionManagementFilter@397814a4, org.springframework.security.web.access.ExceptionTranslationFilter@6a96fee6, org.springframework.security.web.access.intercept.AuthorizationFilter@311226b5]
+2025-06-25 14:39:51.496  INFO 5756 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:39:51.523  INFO 5756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:39:51.531  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 2.61 seconds (JVM running for 101.678)
+2025-06-25 14:39:51.546  INFO 5756 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:50:02.231  INFO 5756 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 14:50:02.301  INFO 5756 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:50:12.603  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 5756 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:50:12.603  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:50:13.327  INFO 5756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:50:13.330  INFO 5756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:50:13.330  INFO 5756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:50:13.364  INFO 5756 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:50:13.364  INFO 5756 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 757 ms
+2025-06-25 14:50:14.333  INFO 5756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b844723, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65afcb11, org.springframework.security.web.context.SecurityContextPersistenceFilter@167ee0ad, org.springframework.security.web.header.HeaderWriterFilter@6db6338f, org.springframework.web.filter.CorsFilter@472378d3, org.springframework.security.web.authentication.logout.LogoutFilter@419ed373, com.nursing.center.security.JwtAuthenticationFilter@40a84a51, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f63f170, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53158158, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@40e60827, org.springframework.security.web.session.SessionManagementFilter@dcfd5a1, org.springframework.security.web.access.ExceptionTranslationFilter@7c7caf15, org.springframework.security.web.access.intercept.AuthorizationFilter@1893fa3a]
+2025-06-25 14:50:14.550  INFO 5756 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:50:14.571  INFO 5756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:50:14.574  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 2.06 seconds (JVM running for 724.724)
+2025-06-25 14:50:14.574  INFO 5756 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:51:45.519  INFO 5756 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:51:45.519  INFO 5756 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:51:45.520  INFO 5756 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-25 14:51:45.520  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:51:45.520  INFO 5756 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E5%BD%93%E5%89%8D%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:51:45.520  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:51:45.520  INFO 5756 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:51:45.520  INFO 5756 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:51:45.520  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:51:45.522  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:51:45.522  INFO 5756 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:51:45.525  INFO 5756 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-06-25 14:51:45.543  INFO 5756 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-06-25 14:51:45.549  INFO 5756 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:51:45.550  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:51:45.550  INFO 5756 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:51:45.550  INFO 5756 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:51:45.550  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:51:45.550  INFO 5756 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:51:53.941  INFO 5756 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E5%BD%93%E5%89%8D%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:51:53.941  INFO 5756 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:51:53.941  INFO 5756 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:51:53.943  INFO 5756 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:51:53.946  INFO 5756 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:51:53.948  INFO 5756 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:51:53.948  INFO 5756 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:52:07.298  INFO 5756 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu/%E7%AC%AC1%E5%91%A8%E8%8F%9C%E5%8D%95
+2025-06-25 14:52:07.299  INFO 5756 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:52:07.299  INFO 5756 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:52:07.300  INFO 5756 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:52:07.304  INFO 5756 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:52:07.305  INFO 5756 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:52:07.305  INFO 5756 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:53:35.614  INFO 5756 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 14:53:36.033  INFO 5756 --- [Thread-22] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:53:36.035  INFO 5756 --- [Thread-22] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-06-25 14:53:36.044  WARN 5756 --- [Thread-22] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-06-25 14:53:36.062  INFO 5756 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-06-25 14:53:36.254  INFO 5756 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-06-25 14:53:48.816  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 5756 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:53:48.820  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:53:49.700  INFO 5756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:53:49.701  INFO 5756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:53:49.702  INFO 5756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:53:49.739  INFO 5756 --- [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:53:49.739  INFO 5756 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 915 ms
+2025-06-25 14:53:51.609  INFO 5756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1172069f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@49051935, org.springframework.security.web.context.SecurityContextPersistenceFilter@7b466e9c, org.springframework.security.web.header.HeaderWriterFilter@36d674ad, org.springframework.web.filter.CorsFilter@4c426a4d, org.springframework.security.web.authentication.logout.LogoutFilter@2239c079, com.nursing.center.security.JwtAuthenticationFilter@45066afd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@67ca5a38, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@623c2970, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23ae80b0, org.springframework.security.web.session.SessionManagementFilter@7c2e8b37, org.springframework.security.web.access.ExceptionTranslationFilter@448b0377, org.springframework.security.web.access.intercept.AuthorizationFilter@71c3c815]
+2025-06-25 14:53:52.241  INFO 5756 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:53:52.326  INFO 5756 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:53:52.351  INFO 5756 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.587 seconds (JVM running for 942.5)
+2025-06-25 14:53:52.367  INFO 5756 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:54:30.679  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 21824 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:54:30.679  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:54:30.728  INFO 21824 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+2025-06-25 14:54:30.728  INFO 21824 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-25 14:54:30.728  INFO 21824 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-25 14:54:31.974  INFO 21824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:54:31.982  INFO 21824 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:54:31.982  INFO 21824 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:54:32.055  INFO 21824 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:54:32.055  INFO 21824 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1327 ms
+2025-06-25 14:54:33.327  INFO 21824 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@37cb094, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16acaa7a, org.springframework.security.web.context.SecurityContextPersistenceFilter@40530260, org.springframework.security.web.header.HeaderWriterFilter@6d9e0065, org.springframework.web.filter.CorsFilter@7de45878, org.springframework.security.web.authentication.logout.LogoutFilter@5eda930a, com.nursing.center.security.JwtAuthenticationFilter@443ed7a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2884da7d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b7629b0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d4d8177, org.springframework.security.web.session.SessionManagementFilter@5c3581b, org.springframework.security.web.access.ExceptionTranslationFilter@5756ac6a, org.springframework.security.web.access.intercept.AuthorizationFilter@319196c0]
+2025-06-25 14:54:33.749  INFO 21824 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:54:33.796  INFO 21824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:54:33.806  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.566 seconds (JVM running for 4.539)
+2025-06-25 14:54:39.699  INFO 21824 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:54:39.699  INFO 21824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:54:39.701  INFO 21824 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-25 14:54:39.718  INFO 21824 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:54:39.718  INFO 21824 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:54:39.720  INFO 21824 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:54:39.720  INFO 21824 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:54:39.720  INFO 21824 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:54:39.725  INFO 21824 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:54:39.784  INFO 21824 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:54:39.784  INFO 21824 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:54:39.829  WARN 21824 --- [http-nio-8080-exec-1] c.b.m.c.t.support.ReflectLambdaMeta      : Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @31d7b7bf
+2025-06-25 14:54:39.841  INFO 21824 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-25 14:54:40.092  INFO 21824 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-25 14:54:40.145  INFO 21824 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:54:40.145  INFO 21824 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:54:40.145  INFO 21824 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:54:40.145  INFO 21824 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:54:40.147  INFO 21824 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:54:40.147  INFO 21824 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:54:41.965  INFO 21824 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:54:41.965  INFO 21824 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:54:41.973  INFO 21824 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:54:41.973  INFO 21824 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:54:41.973  INFO 21824 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:54:41.973  INFO 21824 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:54:41.973  INFO 21824 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:55:26.405  INFO 21824 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 14:55:26.499  INFO 21824 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:55:26.501  INFO 21824 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-06-25 14:55:26.503  WARN 21824 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-06-25 14:55:26.515  INFO 21824 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-25 14:55:26.573  INFO 21824 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-25 14:55:40.324  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 21824 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:55:40.324  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:55:41.018  INFO 21824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:55:41.018  INFO 21824 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:55:41.018  INFO 21824 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:55:41.066  INFO 21824 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:55:41.067  INFO 21824 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 739 ms
+2025-06-25 14:55:42.728  INFO 21824 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4bcfd7af, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a586384, org.springframework.security.web.context.SecurityContextPersistenceFilter@28fe8507, org.springframework.security.web.header.HeaderWriterFilter@57c665ca, org.springframework.web.filter.CorsFilter@61589988, org.springframework.security.web.authentication.logout.LogoutFilter@77b8d3c9, com.nursing.center.security.JwtAuthenticationFilter@73520645, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72e97847, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1665bbe5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@486e5cff, org.springframework.security.web.session.SessionManagementFilter@5a1cfec2, org.springframework.security.web.access.ExceptionTranslationFilter@69e6656a, org.springframework.security.web.access.intercept.AuthorizationFilter@752b868a]
+2025-06-25 14:55:43.145  INFO 21824 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:55:43.175  INFO 21824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:55:43.185  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 2.9 seconds (JVM running for 73.915)
+2025-06-25 14:55:43.190  INFO 21824 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:57:26.252  INFO 21824 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 14:57:28.141  INFO 21824 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 14:57:37.022  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 21824 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:57:37.023  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:57:38.048  INFO 21824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:57:38.048  INFO 21824 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:57:38.048  INFO 21824 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:57:38.080  INFO 21824 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:57:38.080  INFO 21824 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1055 ms
+2025-06-25 14:57:39.413  INFO 21824 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2ac4cee1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37ac37e4, org.springframework.security.web.context.SecurityContextPersistenceFilter@5236ed32, org.springframework.security.web.header.HeaderWriterFilter@5a508feb, org.springframework.web.filter.CorsFilter@758733a6, org.springframework.security.web.authentication.logout.LogoutFilter@40a964aa, com.nursing.center.security.JwtAuthenticationFilter@297e39b7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@644dc029, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a3c349c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e1832c, org.springframework.security.web.session.SessionManagementFilter@4a7ab94d, org.springframework.security.web.access.ExceptionTranslationFilter@50dcd237, org.springframework.security.web.access.intercept.AuthorizationFilter@52e49e84]
+2025-06-25 14:57:39.889  INFO 21824 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:57:39.922  INFO 21824 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:57:39.928  INFO 21824 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 2.985 seconds (JVM running for 190.658)
+2025-06-25 14:57:39.935  INFO 21824 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 14:58:50.769  INFO 7148 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 7148 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:58:50.772  INFO 7148 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:58:50.822  INFO 7148 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+2025-06-25 14:58:50.823  INFO 7148 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-25 14:58:50.823  INFO 7148 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-25 14:58:52.068  INFO 7148 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:58:52.077  INFO 7148 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:58:52.078  INFO 7148 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:58:52.153  INFO 7148 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:58:52.153  INFO 7148 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1330 ms
+2025-06-25 14:58:53.488  INFO 7148 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e234c0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e284b2c, org.springframework.security.web.context.SecurityContextPersistenceFilter@741205d3, org.springframework.security.web.header.HeaderWriterFilter@2f4eb7fe, org.springframework.web.filter.CorsFilter@5c1469c1, org.springframework.security.web.authentication.logout.LogoutFilter@142f5fa9, com.nursing.center.security.JwtAuthenticationFilter@6466a6a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bbabe96, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@204022b3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7469d05f, org.springframework.security.web.session.SessionManagementFilter@327dc0f1, org.springframework.security.web.access.ExceptionTranslationFilter@717b156a, org.springframework.security.web.access.intercept.AuthorizationFilter@473fd86f]
+2025-06-25 14:58:53.891  INFO 7148 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:58:53.929  INFO 7148 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:58:53.941  INFO 7148 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.561 seconds (JVM running for 4.55)
+2025-06-25 14:58:57.441  INFO 7148 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:58:57.442  INFO 7148 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:58:57.443  INFO 7148 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-25 14:58:57.458  INFO 7148 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:58:57.458  INFO 7148 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 14:58:57.460  INFO 7148 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:58:57.460  INFO 7148 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:58:57.461  INFO 7148 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:58:57.461  INFO 7148 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:58:57.515  INFO 7148 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:58:57.515  INFO 7148 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:58:57.553  WARN 7148 --- [http-nio-8080-exec-2] c.b.m.c.t.support.ReflectLambdaMeta      : Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @21de60b4
+2025-06-25 14:58:57.564  INFO 7148 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-25 14:58:57.799  INFO 7148 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-25 14:58:57.849  INFO 7148 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:58:57.849  INFO 7148 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:58:57.850  INFO 7148 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:58:57.851  INFO 7148 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:58:57.852  INFO 7148 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:58:57.852  INFO 7148 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:59:32.570  INFO 7148 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-25 14:59:32.585  INFO 7148 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-25 14:59:36.928  INFO 15028 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 15028 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 14:59:36.934  INFO 15028 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 14:59:36.983  INFO 15028 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+2025-06-25 14:59:36.983  INFO 15028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-25 14:59:36.983  INFO 15028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-25 14:59:38.682  INFO 15028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 14:59:38.691  INFO 15028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 14:59:38.691  INFO 15028 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 14:59:38.779  INFO 15028 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 14:59:38.779  INFO 15028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1787 ms
+2025-06-25 14:59:40.392  INFO 15028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@39fb13ec, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73a78740, org.springframework.security.web.context.SecurityContextPersistenceFilter@732ab14b, org.springframework.security.web.header.HeaderWriterFilter@5ab25eb1, org.springframework.web.filter.CorsFilter@6305f9c9, org.springframework.security.web.authentication.logout.LogoutFilter@437d1796, com.nursing.center.security.JwtAuthenticationFilter@312206bd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33fe909c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57be84c8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@787e9aac, org.springframework.security.web.session.SessionManagementFilter@17aee301, org.springframework.security.web.access.ExceptionTranslationFilter@3e813fbc, org.springframework.security.web.access.intercept.AuthorizationFilter@69c00ea9]
+2025-06-25 14:59:40.909  INFO 15028 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 14:59:40.964  INFO 15028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 14:59:40.981  INFO 15028 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 4.596 seconds (JVM running for 6.726)
+2025-06-25 14:59:44.831  INFO 15028 --- [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 14:59:44.831  INFO 15028 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 14:59:44.837  INFO 15028 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-06-25 14:59:44.872  INFO 15028 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 14:59:44.876  INFO 15028 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 14:59:44.876  INFO 15028 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 14:59:44.957  INFO 15028 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 14:59:45.018  WARN 15028 --- [http-nio-8080-exec-5] c.b.m.c.t.support.ReflectLambdaMeta      : Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @6a400542
+2025-06-25 14:59:45.033  INFO 15028 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-25 14:59:45.348  INFO 15028 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-25 14:59:45.414  INFO 15028 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 14:59:45.416  INFO 15028 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 14:59:45.418  INFO 15028 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:00:00.028  INFO 15028 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 15:00:00.117  INFO 15028 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 15:00:00.118  INFO 15028 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-06-25 15:00:00.122  WARN 15028 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-06-25 15:00:00.135  INFO 15028 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-25 15:00:00.162  INFO 15028 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-25 15:00:13.264  INFO 15028 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 15028 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 15:00:13.265  INFO 15028 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 15:00:14.415  INFO 15028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 15:00:14.417  INFO 15028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 15:00:14.417  INFO 15028 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 15:00:14.479  INFO 15028 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 15:00:14.480  INFO 15028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1212 ms
+2025-06-25 15:00:16.920  INFO 15028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@63342b15, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@36eb6d57, org.springframework.security.web.context.SecurityContextPersistenceFilter@435ecc72, org.springframework.security.web.header.HeaderWriterFilter@6f315260, org.springframework.web.filter.CorsFilter@211ac0df, org.springframework.security.web.authentication.logout.LogoutFilter@1a89f074, com.nursing.center.security.JwtAuthenticationFilter@20d74dfc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@263bf8ad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43fc0c58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7f68d33a, org.springframework.security.web.session.SessionManagementFilter@39de19c, org.springframework.security.web.access.ExceptionTranslationFilter@46e47c88, org.springframework.security.web.access.intercept.AuthorizationFilter@40b3d3fd]
+2025-06-25 15:00:17.304  INFO 15028 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 15:00:17.341  INFO 15028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 15:00:17.351  INFO 15028 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 4.124 seconds (JVM running for 43.095)
+2025-06-25 15:00:17.357  INFO 15028 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 15:08:03.308  INFO 15028 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 15:08:03.308  INFO 15028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 15:08:03.308  INFO 15028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-06-25 15:08:03.308  INFO 15028 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 15:08:03.308  INFO 15028 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:08:03.308  INFO 15028 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:08:03.316  INFO 15028 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:08:03.316  INFO 15028 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-06-25 15:08:03.332  INFO 15028 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-06-25 15:08:03.342  INFO 15028 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:08:03.344  INFO 15028 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:08:03.344  INFO 15028 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:09:59.228  INFO 15028 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:09:59.228  INFO 15028 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:09:59.229  INFO 15028 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:09:59.229  INFO 15028 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:09:59.233  INFO 15028 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:09:59.234  INFO 15028 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:09:59.234  INFO 15028 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:10:11.040  INFO 15028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-06-25 15:10:11.040  INFO 15028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-06-25 15:10:14.108  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 28716 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 15:10:14.110  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 15:10:14.165  INFO 28716 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in D:\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-api-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/txw2-2.3.1.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/istack-commons-runtime-3.0.7.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/stax-ex-1.8.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/FastInfoset-1.2.15.jar,file:/D:/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1/javax.activation-api-1.2.0.jar
+2025-06-25 15:10:14.165  INFO 28716 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-25 15:10:14.165  INFO 28716 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-25 15:10:15.508  INFO 28716 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 15:10:15.520  INFO 28716 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 15:10:15.520  INFO 28716 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 15:10:15.600  INFO 28716 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-25 15:10:15.601  INFO 28716 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1436 ms
+2025-06-25 15:10:16.952  INFO 28716 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@767ef6e2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@226ba75c, org.springframework.security.web.context.SecurityContextPersistenceFilter@142f5fa9, org.springframework.security.web.header.HeaderWriterFilter@3c284507, org.springframework.web.filter.CorsFilter@aa4818b, org.springframework.security.web.authentication.logout.LogoutFilter@10a968b8, com.nursing.center.security.JwtAuthenticationFilter@19ea9d95, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d9a60d6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24581271, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7177da1f, org.springframework.security.web.session.SessionManagementFilter@747132e, org.springframework.security.web.access.ExceptionTranslationFilter@1386d873, org.springframework.security.web.access.intercept.AuthorizationFilter@3f49de02]
+2025-06-25 15:10:17.380  INFO 28716 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 15:10:17.419  INFO 28716 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 15:10:17.431  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.659 seconds (JVM running for 4.408)
+2025-06-25 15:10:24.867  INFO 28716 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 15:10:24.868  INFO 28716 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 15:10:24.869  INFO 28716 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-25 15:10:24.882  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:10:24.883  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:10:24.883  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:10:24.930  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:10:24.968  WARN 28716 --- [http-nio-8080-exec-1] c.b.m.c.t.support.ReflectLambdaMeta      : Unable to make field private final java.lang.Class java.lang.invoke.SerializedLambda.capturingClass accessible: module java.base does not "opens java.lang.invoke" to unnamed module @21de60b4
+2025-06-25 15:10:24.977  INFO 28716 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-25 15:10:25.197  INFO 28716 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-25 15:10:25.238  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:10:25.239  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:10:25.240  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:11:02.118  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:11:02.118  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:11:02.118  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:11:02.119  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:11:02.123  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:11:02.125  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:11:02.125  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:15:22.327  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:15:22.327  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:15:22.328  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:15:22.328  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:15:22.332  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:15:22.333  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:15:22.333  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:16:37.918  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 15:16:37.919  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:16:37.919  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:16:37.919  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:16:37.924  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:16:37.925  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:16:37.925  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:16:37.925  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:16:37.925  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:16:37.926  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:16:37.926  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:16:37.929  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:16:37.931  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:16:37.931  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:17:08.863  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:17:08.865  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:17:08.865  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:17:08.865  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:17:08.868  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:17:08.870  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:17:08.870  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:18:31.367  INFO 28716 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 15:18:31.450  INFO 28716 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 15:18:31.452  INFO 28716 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-06-25 15:18:31.457  WARN 28716 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-06-25 15:18:31.468  INFO 28716 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-25 15:18:31.489  INFO 28716 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-25 15:18:43.840  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 28716 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 15:18:43.840  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 15:18:44.305  INFO 28716 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 15:18:44.306  INFO 28716 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 15:18:44.307  INFO 28716 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 15:18:44.344  INFO 28716 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 15:18:44.344  INFO 28716 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 502 ms
+2025-06-25 15:18:46.669  INFO 28716 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cf06384, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37a0e4b8, org.springframework.security.web.context.SecurityContextPersistenceFilter@47829798, org.springframework.security.web.header.HeaderWriterFilter@6bd3665f, org.springframework.web.filter.CorsFilter@58e6dd69, org.springframework.security.web.authentication.logout.LogoutFilter@5839840f, com.nursing.center.security.JwtAuthenticationFilter@10dfa16e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c7783f2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c66f1bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4cf6f0fc, org.springframework.security.web.session.SessionManagementFilter@767c3b30, org.springframework.security.web.access.ExceptionTranslationFilter@6bc812c8, org.springframework.security.web.access.intercept.AuthorizationFilter@1b51eabb]
+2025-06-25 15:18:47.161  INFO 28716 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 15:18:47.202  INFO 28716 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 15:18:47.208  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.409 seconds (JVM running for 514.185)
+2025-06-25 15:18:47.210  INFO 28716 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 15:19:27.424  INFO 28716 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 258 class path changes (0 additions, 258 deletions, 0 modifications)
+2025-06-25 15:19:27.738  INFO 28716 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-06-25 15:19:38.318  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : Starting NursingCenterApplication using Java 17.0.2 on LAPTOP-AMB5CAJ4 with PID 28716 (D:\IdeaProjects\nursing-center-system\target\classes started by Morty in D:\IdeaProjects\nursing-center-system)
+2025-06-25 15:19:38.318  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-06-25 15:19:39.328  INFO 28716 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2025-06-25 15:19:39.328  INFO 28716 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-25 15:19:39.328  INFO 28716 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2025-06-25 15:19:39.359  INFO 28716 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-06-25 15:19:39.359  INFO 28716 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1038 ms
+2025-06-25 15:19:40.996  INFO 28716 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2341652d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@48de1c3e, org.springframework.security.web.context.SecurityContextPersistenceFilter@aefd11b, org.springframework.security.web.header.HeaderWriterFilter@7061140a, org.springframework.web.filter.CorsFilter@628f8f61, org.springframework.security.web.authentication.logout.LogoutFilter@133f0962, com.nursing.center.security.JwtAuthenticationFilter@72ccb428, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d80c4c4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5539443a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ba79887, org.springframework.security.web.session.SessionManagementFilter@8b7520a, org.springframework.security.web.access.ExceptionTranslationFilter@522eacde, org.springframework.security.web.access.intercept.AuthorizationFilter@2735c29d]
+2025-06-25 15:19:41.445  INFO 28716 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-06-25 15:19:41.474  INFO 28716 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2025-06-25 15:19:41.480  INFO 28716 --- [restartedMain] c.n.center.NursingCenterApplication      : Started NursingCenterApplication in 3.222 seconds (JVM running for 568.456)
+2025-06-25 15:19:41.484  INFO 28716 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-06-25 15:20:45.274  INFO 28716 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-25 15:20:45.274  INFO 28716 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-25 15:20:45.275  INFO 28716 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-25 15:20:45.275  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 15:20:45.277  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:20:45.277  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:20:45.277  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:20:45.277  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:20:45.277  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:20:45.277  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:20:45.279  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:20:45.283  INFO 28716 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-06-25 15:20:45.307  INFO 28716 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-06-25 15:20:45.311  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:20:45.314  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:20:45.314  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:20:45.314  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:20:45.314  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:20:45.314  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:22:29.352  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 15:22:29.352  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:22:29.352  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:22:29.352  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:22:29.352  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:22:29.353  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:22:29.353  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:22:29.353  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:22:29.356  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:22:29.356  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:22:29.356  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:22:29.358  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:22:29.358  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:22:29.358  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:12.361  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:23:12.361  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:23:12.361  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:23:12.362  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:23:12.363  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:12.367  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:23:12.367  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:41.778  INFO 28716 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 处理请求: PUT /api/api/meal-calendar/day
+2025-06-25 15:23:41.778  INFO 28716 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:23:41.778  INFO 28716 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:23:41.778  INFO 28716 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:23:41.786  INFO 28716 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:41.789  INFO 28716 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:23:41.789  INFO 28716 --- [http-nio-8080-exec-10] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:46.153  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 15:23:46.153  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:23:46.153  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:23:46.153  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:23:46.153  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:46.153  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:23:46.153  INFO 28716 --- [http-nio-8080-exec-2] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:47.595  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:23:47.595  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 15:23:47.595  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:23:47.595  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:23:47.595  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:23:47.595  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:23:47.600  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:23:47.600  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:23:47.603  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:47.603  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:47.603  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:23:47.603  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:23:47.603  INFO 28716 --- [http-nio-8080-exec-8] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:23:47.603  INFO 28716 --- [http-nio-8080-exec-3] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:24:21.444  INFO 28716 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:24:21.445  INFO 28716 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:24:21.445  INFO 28716 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:24:21.445  INFO 28716 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:24:21.450  INFO 28716 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:24:21.451  INFO 28716 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:24:21.452  INFO 28716 --- [http-nio-8080-exec-9] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:24:32.826  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 15:24:32.826  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:24:32.826  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:24:32.826  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:24:32.826  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:24:32.826  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:24:32.826  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:24:32.826  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:24:32.833  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:24:32.833  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:24:32.834  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:24:32.834  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:24:32.834  INFO 28716 --- [http-nio-8080-exec-6] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:24:32.834  INFO 28716 --- [http-nio-8080-exec-1] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:36:07.964  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/admin/meal-config/page
+2025-06-25 15:36:07.964  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:36:07.964  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:36:07.965  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:36:07.965  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:36:07.965  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:36:07.965  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:36:07.966  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:36:07.971  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:36:07.971  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:36:07.971  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:36:07.972  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:36:07.972  INFO 28716 --- [http-nio-8080-exec-7] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:36:07.972  INFO 28716 --- [http-nio-8080-exec-4] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:36:20.642  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 处理请求: GET /api/api/meal-calendar/week-menu
+2025-06-25 15:36:20.642  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从请求中获取到的JWT: 存在
+2025-06-25 15:36:20.642  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT格式验证: true
+2025-06-25 15:36:20.642  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 从JWT中解析的用户名: admin
+2025-06-25 15:36:20.650  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 加载用户详情: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:36:20.650  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : JWT token验证结果: true
+2025-06-25 15:36:20.650  INFO 28716 --- [http-nio-8080-exec-5] c.n.c.security.JwtAuthenticationFilter   : 用户认证成功: admin, 权限: [ROLE_ADMIN]
+2025-06-25 15:36:44.956  INFO 28716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-06-25 15:36:44.962  INFO 28716 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

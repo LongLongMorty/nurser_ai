@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nursing.center.mapper.BedMapper">
+
+    <!-- 床位统计 -->
+    <select id="selectBedStatistics" resultType="com.nursing.center.dto.BedStatisticsDTO">
+        SELECT
+            COUNT(*) as totalBeds,
+            SUM(CASE WHEN bed_status = 'AVAILABLE' THEN 1 ELSE 0 END) as availableBeds,
+            SUM(CASE WHEN bed_status = 'OCCUPIED' THEN 1 ELSE 0 END) as occupiedBeds,
+            SUM(CASE WHEN bed_status = 'OUT' THEN 1 ELSE 0 END) as outBeds
+        FROM bed
+        WHERE deleted = 0 AND status = 1
+    </select>
+
+    <!-- 根据楼层查询床位信息 -->
+    <select id="selectBedsByFloor" resultType="com.nursing.center.dto.BedInfoDTO">
+        SELECT
+            b.id,
+            b.room_id,
+            b.bed_no,
+            b.bed_type,
+            b.bed_status,
+            b.status,
+            r.room_no,
+            bu.building_no,
+            r.floor_no,
+            c.customer_name
+        FROM bed b
+                 INNER JOIN room r ON b.room_id = r.id
+                 INNER JOIN building bu ON r.building_id = bu.id
+                 LEFT JOIN customer c ON b.id = c.bed_id AND c.deleted = 0 AND c.status = 1
+        WHERE b.deleted = 0 AND b.status = 1
+          AND r.floor_no = #{floorNo}
+        ORDER BY r.room_no, b.bed_no
+    </select>
+
+    <!-- 查询房间内的空闲床位 -->
+    <select id="selectAvailableBedsByRoom" resultType="com.nursing.center.dto.BedInfoDTO">
+        SELECT
+            b.id,
+            b.room_id,
+            b.bed_no,
+            b.bed_type,
+            b.bed_status,
+            b.status,
+            r.room_no,
+            bu.building_no,
+            r.floor_no
+        FROM bed b
+                 INNER JOIN room r ON b.room_id = r.id
+                 INNER JOIN building bu ON r.building_id = bu.id
+        WHERE b.deleted = 0 AND b.status = 1
+          AND b.bed_status = 'AVAILABLE'
+          AND b.room_id = #{roomId}
+        ORDER BY b.bed_no
+    </select>    <!-- BedDetailDTO的ResultMap -->
+    <resultMap id="bedDetailResultMap" type="com.nursing.center.dto.BedDetailDTO">
+        <id property="id" column="id"/>
+        <result property="bedNo" column="bed_no"/>
+        <result property="bedType" column="bed_type"/>
+        <result property="bedStatus" column="bed_status"/>
+        
+        <!-- 房间信息 -->
+        <association property="room" javaType="com.nursing.center.dto.BedDetailDTO$RoomInfoDTO">
+            <id property="id" column="room_id"/>
+            <result property="roomNo" column="room_no"/>
+            <result property="floorNo" column="floor_no"/>
+        </association>
+        
+        <!-- 楼栋信息 -->
+        <association property="building" javaType="com.nursing.center.dto.BedDetailDTO$BuildingInfoDTO">
+            <id property="id" column="building_id"/>
+            <result property="buildingNo" column="building_no"/>
+            <result property="buildingName" column="building_name"/>
+        </association>
+        
+        <!-- 当前客户信息 -->
+        <association property="currentCustomer" javaType="com.nursing.center.dto.BedDetailDTO$CurrentCustomerDTO">
+            <id property="id" column="customer_id"/>
+            <result property="customerName" column="customer_name"/>
+            <result property="age" column="age"/>
+            <result property="gender" column="gender"/>
+            <result property="healthManagerName" column="health_manager_name"/>
+        </association>
+    </resultMap>
+
+    <!-- 根据床位ID查询床位详细信息 -->
+    <select id="selectBedDetail" resultMap="bedDetailResultMap">
+        SELECT
+            b.id,
+            b.bed_no,
+            b.bed_type,
+            b.bed_status,
+            r.id as room_id,
+            r.room_no,
+            r.floor_no,
+            bu.id as building_id,
+            bu.building_no,
+            bu.building_name,
+            c.id as customer_id,
+            c.customer_name,
+            c.gender,
+            c.age,
+            su.real_name as health_manager_name
+        FROM bed b
+                 INNER JOIN room r ON b.room_id = r.id
+                 INNER JOIN building bu ON r.building_id = bu.id
+                 LEFT JOIN customer c ON b.id = c.bed_id AND c.deleted = 0 AND c.status = 1
+                 LEFT JOIN care_level cl ON c.care_level_id = cl.id
+                 LEFT JOIN sys_user su ON c.health_manager_id = su.id AND su.role = 'HEALTH_MANAGER' AND su.deleted = 0
+        WHERE b.id = #{bedId} AND b.deleted = 0 AND b.status = 1
+    </select><!-- 获取床位图表数据（按楼层显示所有床位状态） -->
+    <select id="selectBedDiagram" resultType="com.nursing.center.dto.BedInfoDTO">
+        SELECT
+            b.id,
+            b.room_id,
+            b.bed_no,
+            b.bed_type,
+            b.bed_status,
+            b.status,
+            r.room_no,
+            bu.building_no,
+            r.floor_no,
+            c.customer_name        FROM bed b
+                 INNER JOIN room r ON b.room_id = r.id
+                 INNER JOIN building bu ON r.building_id = bu.id
+                 LEFT JOIN customer c ON b.id = c.bed_id AND c.deleted = 0 AND c.status = 1
+        WHERE b.deleted = 0 AND b.status = 1
+        ORDER BY bu.building_no, r.floor_no, r.room_no, b.bed_no
+    </select>      <!-- 根据楼层查询房间及床位信息（用于床位示意图） - 获取扁平化数据用于服务层组装 -->
+    <select id="selectBedDiagramByFloor" resultType="java.util.Map">
+        SELECT
+            r.floor_no as floorNo,
+            r.id as roomId,
+            r.room_no as roomNo,
+            r.room_name as roomName,
+            r.room_type as roomType,
+            b.id as bedId,
+            b.bed_no as bedNo,
+            b.bed_type as bedType,
+            b.bed_status as bedStatus,
+            c.customer_name as customerName,
+            c.id as customerId,
+            cl.level_name as careLevel,
+            su.real_name as healthManagerName
+        FROM room r
+        INNER JOIN building bu ON r.building_id = bu.id
+        LEFT JOIN bed b ON r.id = b.room_id AND b.deleted = 0 AND b.status = 1
+        LEFT JOIN customer c ON b.id = c.bed_id AND c.deleted = 0 AND c.status = 1
+        LEFT JOIN care_level cl ON c.care_level_id = cl.id
+        LEFT JOIN sys_user su ON c.health_manager_id = su.id AND su.role = 'HEALTH_MANAGER' AND su.deleted = 0
+        WHERE r.deleted = 0 AND r.status = 1 AND r.floor_no = #{floorNo}
+        ORDER BY r.room_no, b.bed_no
+    </select>
+
+    <!-- 获取床位使用历史记录 -->
+    <select id="selectBedUsageHistory" resultType="com.nursing.center.dto.BedInfoDTO">
+        SELECT
+            b.id,
+            b.room_id,
+            b.bed_no,
+            b.bed_type,
+            b.bed_status,
+            b.status,
+            r.room_no,
+            bu.building_no,
+            r.floor_no,
+            c.customer_name
+        FROM bed_usage_history buh
+                 INNER JOIN bed b ON buh.bed_id = b.id
+                 INNER JOIN room r ON b.room_id = r.id
+                 INNER JOIN building bu ON r.building_id = bu.id
+                 LEFT JOIN customer c ON buh.customer_id = c.id
+        WHERE buh.deleted = 0
+          AND (#{bedId} IS NULL OR buh.bed_id = #{bedId})
+          AND (#{customerId} IS NULL OR buh.customer_id = #{customerId})
+        ORDER BY buh.check_in_time DESC
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <!-- 获取可交换的床位列表 -->
+    <select id="selectSwappableBeds" resultType="com.nursing.center.dto.BedInfoDTO">
+        SELECT
+            b.id,
+            b.room_id,
+            b.bed_no,
+            b.bed_type,
+            b.bed_status,
+            b.status,
+            r.room_no,
+            bu.building_no,
+            r.floor_no,
+            c.customer_name
+        FROM bed b
+                 INNER JOIN room r ON b.room_id = r.id
+                 INNER JOIN building bu ON r.building_id = bu.id
+                 LEFT JOIN customer c ON b.id = c.bed_id AND c.deleted = 0 AND c.status = 1
+        WHERE b.deleted = 0 AND b.status = 1
+          AND b.bed_status IN ('AVAILABLE', 'OCCUPIED')
+          AND (#{customerId} IS NULL OR c.id != #{customerId})
+        ORDER BY b.bed_status DESC, r.room_no, b.bed_no
+    </select>    <!-- 更新客户的床位信息 -->
+    <update id="updateCustomerBedInfo">
+        UPDATE customer 
+        SET bed_id = #{bedId},
+            room_id = #{roomId},
+            building_id = #{buildingId},
+            update_time = NOW()
+        WHERE id = #{customerId} 
+          AND deleted = 0 
+          AND status = 1
+    </update>
+
+</mapper>
